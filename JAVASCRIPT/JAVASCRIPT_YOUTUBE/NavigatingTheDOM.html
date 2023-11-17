@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+              <div class="container" id="main">
+                         <ul class="container1" id="main1">
+                                  <li>Home</li>
+                                  <li>About</li>
+                                  <li>Services</li>
+                                  <li>More About Us</li>
+                                  <li>Contact Us</li>
+                         </ul>
+              </div>
+              <div class="container">
+                         Another Container
+              </div>
+              <script>
+                            let a = document.getElementById('main');
+                            console.log(a);
+                            let b = document.getElementById('main1');
+                            console.log(b);
+                            let c = document.getElementsByClassName('container');
+                            console.log(c);
+                            let  d = document.querySelector('.container'); //#main //returns the first matched container with the given class or id name.
+                            console.log(d);
+                            let e = document.querySelectorAll('li');
+                            console.log(e);
+              </script>
+</body>
+</html>

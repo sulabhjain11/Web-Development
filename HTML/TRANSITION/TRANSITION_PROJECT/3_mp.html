@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+            *{
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+            .sign-up{
+              height: 300px;
+              width: 300px;
+              background-color: pink;
+            }
+            .log-in{
+              height: 300px;
+              width: 300px;
+              background-color: orange;
+            }
+            .container{
+              position: relative;
+            }
+            .form{
+              float: right;
+              margin-right: 50px;
+            }
+    </style>
+  </head>
+  <body>
+         <div class="container">
+               <div class="button-container">
+                     <button class="button" type="button" name="button1">signup</button>
+                     <button class="button" type="button" name="button2">login</button>
+               </div>
+               <div class="form">
+                     <div class="sign-up">
+                           SIGNUP
+                     </div>
+                     <div class="log-in">
+                           LOGIN
+                     </div>
+               </div>
+         </div>
+         <script type="text/javascript">
+                  a = document.getElementsByClassName('button');
+                  b = document.getElementsByClassName('form');
+                  // console.log(b);
+                  for (var i = 0; i <=1; i++) {
+                      a[i].addEventListener("click",function(){
+                          // console.log("hi");
+                          // console.log(this.name);
+                          if(this.name == "button1"){
+                              b[0].style.transform = "translate(-500px,0)";
+                              b[0].style.transition = "all 2s";
+                          }
+                          else{
+                              b[0].style.transform = "translate(0px,0)";
+                              b[0].style.transition = "all 2s";
+                          }
+                      });
+                  }
+         </script>
+  </body>
+</html>

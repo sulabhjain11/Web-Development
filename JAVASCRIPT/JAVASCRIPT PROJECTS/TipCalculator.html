@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+
+                          #container{
+                            border-style:solid;
+                            border-color:black;
+                            height:600px;
+                            width:600px;
+                            margin:auto;
+                          }
+                          #container1{
+                            margin:auto;
+                            width:250px;
+                            margin-top:5px;
+                            margin-bottom:5px;
+                          }
+                          #container2{
+                            margin:auto;
+                            width:200px;
+                            margin-top:5px;
+                            margin-bottom:5px;
+                          }
+                          h1{
+                            text-align:center;
+                          }
+                          #money{
+                            display:inline-block;
+                            background-color:#e9ecef;
+                            height:25px;
+                            width:25px;
+                            padding-top:3px;
+                            border-style:solid;
+                            border-color:black;
+                            border-width:1px;
+                          }
+                          input{
+                            height:25px;
+                            border-width:1px;
+                          }
+                          #tip{
+                            display:inline-block;
+                            height:25px;
+                            width:25px;
+                            padding-top:3px;
+                          }
+                          #form{
+                            position:relative;
+                            left:-22px;
+                          }
+                          #range{
+                            position:relative;
+                            top:8px;
+                          }
+                          #result{
+                            position:relative;
+                            top:115px;
+                          }
+                          h2{
+                            text-align:center;
+                          }
+                          .hello{
+                            background-color:#e9ecef;
+                            border-style:solid;
+                            border-color:grey;
+                            border-width:1px;
+                            margin:10px;
+                            border-radius:5px;
+                          }
+                          #H2V1{
+                            transform:rotate(90deg);
+                            position:relative;
+                            left:-210px;
+                            width:37px;
+                            top:-9px;
+                          }
+                          #hello1{
+                            position:relative;
+                            top:165px;
+                          }
+                          #H2V2{
+                            transform:rotate(90deg);
+                            position:relative;
+                            left: -166px;
+                            width: 37px;
+                            top: -9px;
+                          }
+                          .ab{
+                            position:relative;
+                            top:9px;
+                          }
+             </style>
+</head>
+<body>
+              <div id="container">
+                                              <h1>TIP CALCULATOR</h1>
+                                              <div id="container1">
+                                                                <form>
+                                                                            <label>
+                                                                                      <span id="money">Rs.</span>
+                                                                                      <input type="number" id="input1" value="0" onchange="solve()">
+                                                                           </label>
+                                                              </form>
+                                               </div>
+                                               <div id="container2">
+                                                              <form id="form">
+                                                                        <label>
+                                                                                <span id="tip">Tip:</span>
+                                                                                <input type="range" id="range" onchange="solve()">
+                                                                                <span id="range100"></span>
+                                                                       </label>
+                                                              </form>
+                                                  </div>
+                                                  <div id="result">
+                                                          <hr>
+                                                          <h2>Results</h2>
+                                                  </div>
+                                                  <div id="hello1">
+                                                          <div class="hello">
+                                                                  <span class="ab">Tip amount</span>
+                                                                  <span id="tip1"></span>
+                                                                  <hr id="H2V1">
+
+                                                          </div>
+                                                          <div class="hello">
+                                                                 <span class="ab">Total Bill with Tip</span>
+                                                                 <span id="bill"></span>
+                                                                 <hr id="H2V2">
+                                                          </div>
+                                                  </div>
+                 </div>
+
+
+                 <script>
+                               function solve(){
+                                  var inputfield1 = document.getElementById('input1').value;
+                                  var tip=document.getElementById('range').value;
+                                  document.getElementById('range100').innerHTML=tip;
+                                  console.log(inputfield1);
+                                  console.log(tip);
+                                  var tip1 = (tip/100)*inputfield1;
+                                  document.getElementById('tip1').innerHTML=tip1;
+                                  var bill = Number(inputfield1)+tip1;
+                                  document.getElementById('bill').innerHTML=bill;
+                               }
+
+                 </script>
+</body>
+</html>

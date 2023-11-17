@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          h1{
+                            position:relative;
+                            top:84px;
+                            text-align:center;
+                            color:#17D4FE;
+                            margin:auto;
+
+                          }
+                          div{
+                            margin:auto;
+                            background-color:black;
+                            height:200px;
+                            width:500px;
+                            border-radius:5px;
+                          }
+             </style>
+</head>
+<body>
+             <div class="container" id="container">
+                        <h1>
+                                  <span id="hour">00</span>
+                                  <span>:</span>
+                                  <span id="minute">00</span>
+                                  <span>:</span>
+                                  <span id="second">00</span>
+                                  <span>AM</span>
+                        </h1>
+             </div>
+             <script>
+                          function giveTime()
+                                {
+                                      var date = new Date();
+                                      var hr = date.getHours(); // 0-23
+                                      var min = date.getMinutes(); // 0-59
+                                      var sec=date.getSeconds(); // 0-59
+                                      var period;
+                                      if (hr>12) {
+                                            hr=hr-12;
+                                            period="PM";
+                                      }
+                                      if (hr==0) {
+                                           period="AM";
+                                      }
+                                      if (hr<10) {
+                                         hr="0"+hr;
+                                      }
+                                      if (min<10) {
+                                         min="0"+min;
+                                      }
+                                      if (sec<10) {
+                                         sec="0"+sec;
+                                      }
+                                      document.getElementById('hour').innerHTML=hr;
+                                      document.getElementById('minute').innerHTML=min;
+                                      document.getElementById('second').innerHTML=sec;
+                                      setTimeout(giveTime,1000);
+                                }
+                           giveTime();
+             </script>
+</body>
+</html>

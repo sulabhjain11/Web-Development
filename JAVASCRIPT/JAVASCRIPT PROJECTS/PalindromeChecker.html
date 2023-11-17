@@ -1,0 +1,129 @@
+<!-- Enter an input.Show the result if the input is a palindrome or not -->
+<!-- The input entered will be taken as a string at the backend and actions will be performed on it to yield the result -->
+
+<!-- "Oh who was it I saw, oh who?" is a Palindrome
+"Madam" is a Palindrome
+"Star Wars" is not a Palindrome
+"2,3,4,3,2" is a Palindrome
+"7,10,7,8,9" is not a Palindrome -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+            <style>
+                         #container{
+                            border-style:solid;
+                            border-color:black;
+                            height:500px;
+                            width:500px;
+                            margin:auto;
+                            border-radius:10px;
+                          }
+                          #inputfield{
+                            display:inline-block;
+                            position:relative;
+                            top:82px;
+                            left:73px;
+                            width:274px;
+                          }
+                          #button{
+                            position:relative;
+                            top:82px;
+                            left:87px;
+                            height:25px;
+                            border:none;
+                            padding:5px;
+                            border-radius:5px;
+
+                          }
+                          p{
+                            width:300px;
+                            position:relative;
+                            top:100px;
+                            left:71px;
+                          }
+                          #button:hover{
+                            position:relative;
+                            top:82px;
+                            left:87px;
+                            height:25px;
+                            border:none;
+                            padding:5px;
+                            border-radius:5px;
+                            background:pink;
+                            color:white;
+                          }
+                          #inputfield:hover{
+                            display:inline-block;
+                            position:relative;
+                            top:82px;
+                            left:73px;
+                            width:276px;
+                            border-width:2px;
+                            box-shadow:1px 1px grey;
+                          }
+            </style>
+</head>
+<body>
+             <div id=container>
+                        <input id="inputfield" placeholder="Enter to check for palindrome"></input>
+                        <button id="button" onclick="submitInput()">SUBMIT</button>
+                        <p id="p">display result</p>
+             </div>
+
+
+             <script>
+                           var input = document.getElementById('inputfield');   //innerHTML and textContent will not work in input filed====vaue will work in inputfield
+                           var r;
+
+
+                           function submitInput(){
+                             // As soon as submit button is clicked,this function will be called.
+                             r=input.value;
+                             input.value="";
+                             //console.log(r);
+                              palindromeChecker(r);
+
+
+                           }
+                           function palindromeChecker(a){
+                             // first remove space and comma from the string
+                             //console.log(a);
+                             var stringa="";
+                             var stringb="";
+                             a=a.toLowerCase();
+                             for (var i = 0; i < a.length; i++) {
+                               if (a[i]==" " || a[i]==",") {
+                                  continue;
+                               }
+                               else{
+                                 stringa = stringa + a[i];
+                               }
+                             }
+                             if (stringa.length==0) {
+                                  document.getElementById('p').innerHTML="Error: Nothing entered";
+                             }
+                             else{
+                               //console.log(stringa);
+                              for (var i = stringa.length-1; i >=0; i--) {
+                                stringb=stringb+stringa[i];
+                              }
+                              if (stringa==stringb) {
+                                console.log(stringa);
+                                console.log(stringb);
+                                document.getElementById('p').innerHTML="PALINDROME";
+                              }
+                              else{
+                                console.log(stringa);
+                                console.log(stringb);
+                                document.getElementById('p').innerHTML="NOT A PALINDROME";
+                              }
+                             }
+
+                           }
+             </script>
+
+</body>
+</html>

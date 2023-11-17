@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+            *{
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+            .navigator{
+              display: grid;
+              grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr;
+              grid-template-rows: 80px;
+              margin-bottom: 50px;
+            }
+            .nav{
+              align-self: center;
+              text-align: center;
+              padding: 10px;
+              transition: all 1s linear;
+            }
+            .nav:hover{
+              background-color: #ff5a0b;
+              color: white;
+            }
+            #photo{
+              background-image: url('https://thumbs.dreamstime.com/b/pasta-logo-hand-drawn-vector-illustration-chef-cooker-mustache-plate-spaghetti-colorful-italian-pasta-logo-hand-163269151.jpg');
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: 10%;
+            }
+            .box{
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: 500px;
+              line-height:50px;
+              letter-spacing: 5px;
+
+              transition: all 0.15s ease;
+
+
+              /* display: none; */
+            }
+            .box1{
+              /* z-index: 10; */
+            }
+            .box2{
+              /* z-index: 5; */
+              display: none;
+            }
+            .box3{
+              /* z-index: 1; */
+              display: none;
+            }
+            .image{
+              background-image: url("https://thestayathomechef.com/wp-content/uploads/2017/07/Olive-Oil-Pasta-2-2-4272x2848.jpg");
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+           .slider{
+             /* display: relative; */
+             display: flex;
+             width: 80%;
+             margin: auto;
+           }
+           .outer{
+             width: 93%;
+             margin: auto;
+             border-style: solid;
+             border-color: black;
+           }
+           .radio-button{
+             width: 80px;
+             margin: auto;
+             padding: 5px;
+           }
+           input{
+             padding: 2px;
+           }
+           .best-dishes{
+             width: 560px;
+             margin: auto;
+             margin-top: 70px;
+             margin-bottom: 30px;
+           }
+           .best-dishes .colorbox{
+             display: inline-block;
+             background-color: #e33c85;
+             width: 160px;
+             height: 10px;
+             position: relative;
+             top: -6px;
+           }
+           .best-dishes h1{
+             display: inline-block;
+           }
+           .pasta{
+             border-style: solid;
+             border-color: black;
+             height: 270px;
+             width: 276px;
+           }
+           .pasta img{
+             width: 270px;
+             height:230px;
+           }
+           .pasta h2{
+             text-align: center;
+           }
+           #pasta-outer-box{
+
+           }
+           .blob{
+             display: inline-grid;
+             grid-template-columns: 300px 300px 300px;
+             justify-items: center;
+             grid-gap: 207px;
+           }
+           .second{
+              /* display: none; */
+           }
+           .button-container button{
+             height: 25px;
+             width: 25px;
+             margin: 5px;
+             margin-bottom: 10px;
+           }
+           .button-container{
+             width: 80px;
+             margin: auto;
+           }
+           .boxxx{
+             overflow: hidden;
+             width: 200%;
+             position: relative;
+             left: 20px;
+           }
+           .backgroundbox{
+             height: 500px;
+             background-image: url('https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F11%2F23%2FGettyImages-1228681870-2000.jpg');
+           }
+           .formfill{
+             display: flex;
+             flex-wrap: wrap;
+             width:80%;
+             gap: 50px;
+             margin: auto;
+           }
+           .upper-input{
+             height: 75px;
+             width: 430px;
+             background-color: #383434;
+             border: none;
+             border-radius: 8px;
+             padding: 25px;
+           }
+           .lower-input{
+             height: 75px;
+             width: 270px;
+             background-color: #383434;
+             border: none;
+             border-radius: 8px;
+             padding: 25px;
+           }
+           .formfill button{
+             height: 55px;
+             width: 912px;
+             background-color: #ff5a0b;
+             border: none;
+             border-radius: 8px;
+           }
+           .persons{
+            display: grid;
+            grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
+            grid-template-rows: 180px;
+            grid-gap: 10px;
+           }
+           .persons img{
+             max-width: 100%;
+             max-height: 100%;
+             min-width: 100%;
+             min-height: 100%;
+           }
+           .persons .person{
+             border-style: solid;
+             border-color: #ff5a0b;
+           }
+           .end{
+             background-color: grey;
+             padding: 5px;
+             text-align: center;
+           }
+           .inside-end{
+            background-color: #584e4e;
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr 0.5fr 1fr;
+            padding: 50px;
+            grid-gap: 205px;
+           }
+           .social img{
+             height: 50px;
+             width: 50px;
+           }
+           .feedback input{
+             width:312px;
+             height: 50px;
+           }
+    </style>
+  </head>
+  <body>
+        <div class="navigator">
+              <div id="photo"></div>
+              <div class="nav">HOME</div>
+              <div class="nav">ABOUT</div>
+              <div class="nav">LOCATION</div>
+              <div class="nav">MENU</div>
+              <div class="nav">CONTACT</div>
+        </div>
+        <div class="outer">
+        <div class="slider">
+              <div class="box box1">
+                    <div class="writing">
+                          <h1>What is Pasta?</h1>
+                          <p>((1))Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+                    </div>
+                    <div class="image"></div>
+              </div>
+              <div class="box box2">
+                    <div class="writing">
+                          <h1>What is Pasta?</h1>
+                          <p>((2))Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+                    </div>
+                    <div class="image"></div>
+              </div>
+              <div class="box box3">
+                    <div class="writing">
+                          <h1>What is Pasta?</h1>
+                          <p>((3))Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+                    </div>
+                    <div class="image"></div>
+              </div>
+        </div>
+        <div class="radio-button">
+              <input type="radio" name="boxx" value="box1" checked>
+              <input type="radio" name="boxx" value="box2">
+              <input type="radio" name="boxx" value="box3">
+        </div>
+        </div>
+        <div class="backgroundbox">
+        <div class="best-dishes">
+              <div class="colorbox"></div>
+              <h1>BEST DISHES</h1>
+              <div class="colorbox"></div>
+        </div>
+        <div id="pasta-outer-box">
+        <div class="button-container">
+              <button type="button" class="button" name="button1"><b><</b></button>
+              <button type="button" class="button" name="button2"><b>></b></button>
+        </div>
+        <div class="boxxx">
+                <div class="first blob">
+                        <div class="b1 pasta">
+                              <img src="https://bestslimmingworld.com/wp-content/uploads/2020/06/Syn-Free-Slimming-World-Vegetable-Pasta-In-The-Slow-Cooker-1.jpg">
+                              <h2>PASTA CAPELLINI</h2>
+                        </div>
+                        <div class="b2 pasta">
+                              <img src="https://th.bing.com/th/id/OIP.YM8QCE_SqcoC9ghZDkf8qAHaLH?pid=ImgDet&rs=1">
+                              <h2>PASTA PILLUS</h2>
+                        </div>
+                        <div class="b3 pasta">
+                              <img src="https://th.bing.com/th/id/OIP.zmvkZrPdk-Ebl0M-iVkxyAHaHa?pid=ImgDet&w=480&h=480&rs=1">
+                              <h2>PASTA FUSILLI</h2>
+                        </div>
+                </div>
+                <div class="second blob">
+                        <div class="b4 pasta">
+                              <img src="https://th.bing.com/th/id/OIP.SmprMpP4LyxofBLwfDAYfQAAAA?pid=ImgDet&w=360&h=360&rs=1">
+                              <h2>PASTA CAPELLINI</h2>
+                        </div>
+                        <div class="b5 pasta">
+                              <img src="https://th.bing.com/th/id/OIP.FDKxwlU1e1E-aKYJ7LURoAEyDM?pid=ImgDet&rs=1">
+                              <h2>PASTA PILLUS</h2>
+                        </div>
+                        <div class="b6 pasta">
+                              <img src="https://th.bing.com/th/id/OIP.5mIqXdN_I_llt4drgUVWbAHaE8?pid=ImgDet&rs=1">
+                              <h2>PASTA FUSILLI</h2>
+                        </div>
+                </div>
+        </div>
+        </div>
+        </div>
+        <div class="order-now">
+                <div class="best-dishes">
+                      <div class="colorbox"></div>
+                      <h1>BOOK ONLINE</h1>
+                      <div class="colorbox"></div>
+                </div>
+                <div class="formfill">
+                      <input type="text" placeholder="Your Name" name="" value="" class="upper-input">
+                      <input type="email" placeholder="Your E-MAIL" name="" value="" class="upper-input">
+                      <input type="date" name="" value="" class="lower-input">
+                      <input type="date" name="" value="" class="lower-input">
+                      <input type="number" placeholder="Number of persons" name="" value="" class="lower-input">
+                      <button type="button" name="button">BOOK NOW</button>
+                </div>
+        </div>
+        <div class="">
+                <div class="best-dishes">
+                      <div class="colorbox"></div>
+                      <h1>CONTACT US</h1>
+                      <div class="colorbox"></div>
+                </div>
+                <div class="persons">
+                      <div class="person"><img src="https://th.bing.com/th/id/OIP.Bt86cFV63I4JaLKFhk6sPwHaEK?w=328&h=184&c=7&r=0&o=5&pid=1.7"></div>
+                      <div class="person"><img src="https://th.bing.com/th/id/R.15f8a6de88d7e7e568624557dc2040ce?rik=v9AAIfYPxBmk4w&riu=http%3a%2f%2fi.huffpost.com%2fgen%2f2325240%2fimages%2fo-ANGRY-OLDER-PERSON-facebook.jpg&ehk=BmF9c1TgcgOSx3iZHGCixkoojjXIjhkFX2uvoSZglLo%3d&risl=&pid=ImgRaw&r=0"></div>
+                      <div class="person"><img src="https://th.bing.com/th/id/OIP.3PcnzVpB8uWoUFq9xQMHHQHaD4?pid=ImgDet&w=1200&h=630&rs=1"></div>
+                      <div class="person"><img src="https://engineering.unl.edu/images/staff/Kayla-Person.jpg"></div>
+                      <div class="person"><img src="https://th.bing.com/th/id/OIP.8okHNLMZNJdHvgCPiJ_TnwHaLH?pid=ImgDet&w=600&h=900&rs=1"></div>
+                      <div class="person"><img src="https://th.bing.com/th/id/OIP.LZddiOZJ9RTqMFFSUKXUiQAAAA?pid=ImgDet&w=375&h=526&rs=1"></div>
+                </div>
+        </div>
+        <div class="end">
+              <div class="inside-end">
+                    <div class="review">
+                          <h1>Customer Reviews</h1>
+                          <p>“ This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate a ornare odio. Sed non mauris vitae erat consequat ”</p>
+                          <h2>-JOHN ALVES</h2>
+                          <p>“ This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate a ornare odio. Sed non mauris vitae erat consequat ”</p>
+                          <h2>-CATHREINE JOHNES</h2>
+                    </div>
+                    <div class="social">
+                         <h1>Socialize</h1>
+                         <a href="#"><img src="https://coindoo.com/wp-content/uploads/2019/01/facebook-icon.png"></a>
+                         <a href="#"><img src="https://cdn2.iconfinder.com/data/icons/flat-social-media-icons-1/2500/twitter.png"></a>
+                         <a href="#"><img src="https://th.bing.com/th/id/OIP.JtmXSh_uyZBaTg1eXd-NtgHaHa?pid=ImgDet&rs=1"></a>
+                         <a href="#"><img src="https://th.bing.com/th/id/OIP.J8eoXemIbcHAD7j_-JBaLQHaHa?pid=ImgDet&rs=1"></a>
+                    </div>
+                    <div class="feedback">
+                          <h1>Send Feedback</h1>
+                          Your Name: <br>
+                          <input type="text" name="" value=""> <br>
+                          Mobile Number: <br>
+                          <input type="text" name="" value=""> <br>
+                          Message: <br>
+                          <textarea name="name" rows="8" cols="40"></textarea>
+                    </div>
+              </div>
+              <h3>Copyright 2022 All Rights Reserved | By Sulabh Kumar Jain</h3>
+        </div>
+        <script type="text/javascript">
+              a = document.querySelectorAll('input');
+              b = document.getElementsByClassName('box');
+              console.log(b);
+              // console.log(a[0].checked);
+              for(i=0;i<=2;i++){
+                  a[i].addEventListener('click',function(){
+                       // console.log(this.checked);
+                       if(this.value == "box1"){
+                            // console.log("hi");
+                            b[0].style.display = "grid";
+                            b[1].style.display = "none";
+                            b[2].style.display = "none";
+                       }
+                       else if(this.value == "box2"){
+                            // console.log("hi");
+                            b[0].style.display = "none";
+                            b[1].style.display = "grid";
+                            b[2].style.display = "none";
+                       }
+                       else if(this.value == "box3"){
+                            // console.log("hi");
+                            b[0].style.display = "none";
+                            b[1].style.display = "none";
+                            b[2].style.display = "grid";
+                       }
+                  });
+              }
+              button = document.getElementsByClassName('button');
+              blob = document.getElementsByClassName('blob');
+              for(i=0;i<=1;i++){
+                  button[i].addEventListener('click',function(){
+                      console.log(this.name);
+                      if(this.name == "button1")
+                          {
+                            // console.log(blob[0]);
+                            blob[0].style.transform = "translateX(-1305px)";
+                            blob[0].style.transitionProperty = "all";
+                            blob[0].style.transitionDuration = "5s"
+
+                            blob[1].style.transform = "translateX(-1305px)";
+                            blob[1].style.transitionProperty = "all";
+                            blob[1].style.transitionDuration = "5s"
+                          }
+                      else if(this.name == "button2")
+                          {
+                            blob[0].style.transform = "translateX(0px)";
+                            blob[0].style.transitionProperty = "all";
+                            blob[0].style.transitionDuration = "5s"
+
+                            blob[1].style.transform = "translateX(0px)";
+                            blob[1].style.transitionProperty = "all";
+                            blob[1].style.transitionDuration = "5s"
+                          }
+                  });
+              }
+        </script>
+  </body>
+</html>

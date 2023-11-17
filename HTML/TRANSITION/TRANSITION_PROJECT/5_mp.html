@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+            *{
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+            div{
+              height: 50vh;
+              width: 50vw;
+            }
+            .box1{
+              background-image: linear-gradient(blue 50%,pink 1%);
+            }
+            .box2{
+              background-image: radial-gradient(circle,red 50%,white 1%);
+            }
+            .box3{
+              /* background-image: radial-gradient(circle at top right,blue 52%,white 1%); */
+              /* transition: background-image 10s; */
+              background-color: pink;
+              border-bottom-left-radius: 356px;
+              border-bottom-right-radius: 20px;
+            }
+    </style>
+  </head>
+  <body>
+         <div class="box1">
+
+         </div>
+         <div class="box2">
+
+         </div>
+         <button id="button" type="button" name="button">Click me</button>
+         <div class="box3">
+
+         </div>
+         <script type="text/javascript">
+                  a = document.getElementById('button');
+                  b = document.getElementsByClassName('box3')[0];
+                  a.addEventListener("click",function(){
+                  b.style.backgroundPosition = "top";
+                  });
+         </script>
+  </body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <style>
+                        body{
+                          background-color:#c1d72e;
+                        }
+                        h1,h2,p{
+                          text-align:center;
+                        }
+                        #container{
+                          border-style:solid;
+                          border-color:black;
+                        }
+                        #alphabet{
+                          max-width:900px;
+                          margin:auto;
+                          margin-top:20px;
+                          margin-bottom:20px;
+                        }
+
+                        .letter{
+                          /* li */
+                          border-radius:10px;
+                          border-style:solid;
+                          text-align:center;
+                          list-style:none;
+                          display:inline-block;
+                          height:28px;
+                          width:25px;
+                          background-color:grey;
+                          padding:5px;
+                          margin:6px;
+                          background-color:white;
+                          color:#c1d72e;
+                          font-size:24px;
+                          cursor:pointer;
+                          border-width:1px;
+                        }
+                        li:hover{
+                          background-color:#c1d72e;
+                          color:white;
+                          border-style:solid;
+                          border-color:white;
+                          border-width:1px;
+                        }
+                        canvas{
+                          border-color:white;
+                          border-style:dashed;
+                          border-width:2px;
+                          position:relative;
+                          left:600px;
+                        }
+                        #buttons{
+                          width:398px;
+                          margin:auto;
+                        }
+                        .button{
+                          width:170px;
+                          height:64px;
+                          margin:13px;
+                          border-radius:10px;
+                          border-style:solid;;
+                          border-width:1px;
+                          border-color:white;
+                          background-color:#c1d72e;
+                          color:white;
+                          cursor:pointer;
+                          font-size:21px;
+                        }
+                        .button:hover{
+                           background-color:white;
+                           color:#c1d72e;
+                        }
+                        .word{
+                          /* li */
+                           list-style:none;
+                           display:inline-block;
+                           text-decoration:underline;
+                           margin:5px;
+                           font-size:30px;
+                           color:white;
+                        }
+                        #word_ul{
+                          max-width:800px;
+                          position:relative;
+                          left:561px;
+                        }
+
+            </style>
+</head>
+<body>
+             <div id="container">
+                       <h1>HANGMAN</h1>
+                       <h2>VANILLA JAVASCRIPT HANGMAN GAME</h2>
+                       <h2>Use the alphabet below to guess the word, or click hint to get the clue.</h2>
+                       <div id="alphabets"></div>
+                       <h2>The Chosen Category Is <span>categories</span></h2>
+                       <div id="blank"></div>
+                       <p id="pp">You have <span id="span">10</span> lives</p>
+                       <p id="para"></p>
+                       <canvas id="canvas"></canvas>
+                       <div id="buttons">
+                                <button class="button" id="hint">Hint</button>
+                                <button class="button" id="reset">Play again</button>
+                       </div>
+             </div>
+             <script type="text/javascript">
+
+                        var alphabets = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+                        var alphabet = document.getElementById('alphabets');
+                        var letters = document.createElement('ul');
+                        alphabet.appendChild(letters);
+                        letters.id = 'alphabet'; // for class ==== letters.setAttribute('class','alphabet');
+                        var character;
+                        for (var i = 0; i < alphabets.length; i++) {
+                            character = document.createElement('li');
+                            character.setAttribute('class','letter');
+                            character.innerHTML = alphabets[i];
+                            letters.appendChild(character);
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                           // creating a constructor objects to store information about the game
+                           // each category will have several names under the category.Each name will have a name associated with it.
+                           // [category] ---> [subcategory] ---> [unique hint associated with each subcategory]
+
+                           // function Game(){
+                           //   this.category;
+                           //   this.hint;
+                           //   this.word;
+                           // }
+
+                           var randomcategory1,randomcategory;
+                           var randomname1,randomname;
+                           var hintassociated;
+                           function RandomCategoryNameWithHint(){
+
+                                // console.log(name1[5].length);
+                                // console.log(hint[5].length);
+
+                                randomcategory1 = Math.floor(Math.random()*6);
+                                randomcategory = category[randomcategory1];
+                                randomname1 = Math.floor(Math.random()*(name1[randomcategory1].length));
+                                randomname = name1[randomcategory1][randomname1];
+                                randomname = randomname.toLowerCase();
+                                // console.log(randomname);
+                                hintassociated = hint[randomcategory1][randomname1];
+                                // console.log(randomcategory);
+                                // console.log(randomname);
+                                // console.log(hintassociated);
+
+
+
+
+
+                           }
+
+                        var category=["Films","Sports","Politics","Economics","Business","Fitness"];
+                        var name1 = [["James Bond","Mission Impossible","The Omen","Night At The Museum","Gladiator"],["Sachin Tendulkar","Cricket","Football"],["Indira Gandhi","Rahul Gandhi","BJP","Donald Trump"],["Sitaraman","Manmohan Singh"],["Mukesh Ambani"],["India","Ramdev","Yoga"]];
+
+                        var hint = [["A spy thriller, whose protagonist is played by Daniel Craig","Nothing Is Impossible","999","All the artifacts come into existance at night"," Ancient adventure thriller "],["God of Cricket","This game is worshiped in India","This game is played in the west, known for the rivelry between Messi and Ronaldo"],["Iron Lady of India","This Indian potitician has been made to look a fool. He is a contestand for the Prime Ministership of India","This political party is supported by goats popularly known as Godi Media and Andhbhakts","This president of USA is known for the golden shower with Stormy Daniels"],["Worst economic minister of India","One of the best economic ministers in the world"],["Richest man in India for the past few decades"],["Country of Gandhi","Chutiya, known for patanjali and yoga","Form of mental and physical exercise"]];
+
+
+
+                        RandomCategoryNameWithHint();
+
+                        // console.log(randomcategory);
+                        var word_li;
+                        var word_ul = document.createElement('ul');
+                        word_ul.setAttribute('id','word_ul');
+                        var blank = document.getElementById('blank');
+                        blank.appendChild(word_ul);
+                        for (var i = 0; i < randomname.length; i++) {
+                          word_li = document.createElement('li');
+                          word_li.setAttribute('class','word');
+                          // word_li.innerHTML=randomname[i];
+                          word_ul.appendChild(word_li);
+                        }
+                        var hintt = document.getElementById('hint');
+                        var para = document.getElementById('para');
+                        hintt.addEventListener("click",function(){
+                            para.innerHTML = hintassociated;
+                        });
+                       var clickletter = document.getElementsByClassName('letter');
+                       var clickedletter;
+                       var p=0,q=10;
+                       var str = "";
+                       // once===each eventlistener will be triggered only once
+                       var wordall = document.querySelectorAll('.word');
+                       for (var i = 0; i < 26; i++) {
+                            clickletter[i].addEventListener("click",function(){
+                            clickedletter = this.innerHTML;   //error while clickletter[i].innerHTML
+                             console.log(clickedletter);
+                            for (var j = 0; j < randomname.length; j++) {
+                                 if (clickedletter === randomname[j]) {
+                                      // console.log(randomname[j]);
+                                      wordall[j].innerHTML=clickedletter;
+                                      // console.log(clickedletter);
+                                      str = str + clickedletter;
+                                 }
+                            }
+                           p++;
+                           q--;
+                           console.log(p);
+                           console.log(q);
+                           console.log(str);
+                           if (p===10 && str.length<randomname.length) {
+                                    document.getElementById('pp').innerHTML = "YOU LOSE";
+                           }
+                           else{
+                              document.getElementById('span').innerHTML=q;
+                           }
+
+                          },{once:true});
+
+                       }
+
+                       var reset = document.getElementById('reset');
+                       reset.addEventListener("click",function(){
+                         // more of such in===https://techbriefers.com/10-methods-for-how-to-refresh-a-page-in-javascript/#:~:text=%20How%20To%20Refresh%2FReload%20A%20Page%20In%20JavaScript,simple%20method%20to%20refresh%20the%20page...%20More%20
+                         // window.location.reload();
+                         // document.location.reload(true);===reload the page from server
+                         // document.load.reload(false);===reload the page from cookie
+                          window.location.reload();
+                       });
+
+
+
+             </script>
+</body>
+</html>

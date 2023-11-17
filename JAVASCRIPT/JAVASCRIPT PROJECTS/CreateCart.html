@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+             <div class="containter1">
+                        <ul>
+                                <li><a href="#" class="add-to-cart" data-name="apple" data-price="100">APPLE   Rs100</a></li>
+                                <li><a href="#" class="add-to-cart" data-name="banana" data-price="200">BANANA   Rs200</a></li>
+                                <li><a href="#" class="add-to-cart" data-name="mango" data-price="150">MANGO   Rs150</a></li>
+                                <li><a href="#" class="add-to-cart" data-name="guava" data-price="200">GUAVA   Rs200</a></li>
+                        </ul>
+                        <div>
+                                  <p>Total price: <span id="totalprice"></span></p>
+                        </div>
+                        <button id="clear-cart">Clear Cart</button>
+             </div>
+             <div class="container2">
+                        <ul id="show-cart">
+                        </ul>
+             </div>
+
+             <script type="text/javascript">
+                            a = document.querySelectorAll(".add-to-cart");
+                            b = document.getElementById("show-cart");
+                            c = document.getElementById('totalprice');
+                            for(var i=0;i<a.length;i++){
+                                    a[i].addEventListener("click", (e) =>{
+                                             e.preventDefault();  // "#": go to the top of page. This will prevent this default behaviour.
+                                             var name = e.target.dataset.name;
+                                             var price = Number(e.target.dataset.price); // convert string to number.
+                                             // console.log(price);
+                                             AddItemToCart(name,price,1);
+                                             DisplayCart();
+                                    });
+                            }
+
+                             function DisplayCart(){
+                                    var cartarray = ListCart();
+                                    var output = "";
+                                    var price=0;
+                                    for(var i in cartarray){
+                                           price+=cartarray[i].price*cartarray[i].count;
+                                           output+="<li>"+cartarray[i].name+" "+cartarray[i].count+"</li>";
+                                    }
+                                    b.innerHTML = output;
+                                    c.innerHTML = price;
+                             }
+
+
+
+
+                            var cart = [];
+                            function Item(name, price, count){
+                                  // This function will create an object each time it is called.
+                                  // This function is equivalent to:  var a = new Item();
+                                  //  The above statement is same as: {name:"something", price:something, count=something}
+                                  this.name = name;
+                                  this.price = price;
+                                  this.count = count;
+                            }
+                            // var a = new Item("Popcorn",100,2);
+                            // console.log(a);
+
+                            // add items to cart
+                            function AddItemToCart(name,price,count){
+                                   // var item = new Item(name,price,count);
+                                   //  First check if the item is already present in the cart.
+                                   // If the item is present, increase the count, else add the item to the cart.
+                                    for (var i in cart){
+                                           if (name===cart[i].name) {
+                                                  cart[i].count +=count;
+                                                  SaveCart();
+                                                  return;
+                                           }
+                                    }
+                                   var item = new Item(name,price,count);
+                                   cart.push(item);
+                                   SaveCart();
+                            }
+                            // AddItemToCart("Popcorn",100,2);
+                            // AddItemToCart("Apple",130,1);
+                            // AddItemToCart("Orange",100,5);
+                            // AddItemToCart("Guava",200,3);
+                            // AddItemToCart("Popcorn",100,5);
+                            // console.log(cart);
+
+                            function RemoveItemFromCart(name){
+                                   // This function will decrement each item by 1
+                                   // Apple:5
+                                   // Apple:4
+                                   // Apple:3
+                                   for(var i in cart){
+                                          if (name === cart[i].name) {
+                                                 cart[i].count--;
+                                                 break;
+                                          }
+                                   }
+                                   SaveCart();
+                            }
+                            // RemoveItemFromCart("Popcorn");
+                            // console.log(cart);
+
+                            function RemoveItemFromCartAll(name){
+                                    // This function will remove all items under the same name.
+                                    for(var i in cart){
+                                           if (name === cart[i].name) {
+                                                  // splice is used to remove items from the middle of array
+                                                  // splice is also used to remove items from the middle of array and add other new item.
+                                                  cart.splice(i,1);
+                                                  break;
+                                           }
+                                    }
+                                    SaveCart();
+                            }
+                            // RemoveItemFromCartAll("Orange");
+                            // console.log(cart);
+
+                            function ClearCart(){
+                                    cart = [];
+                                    SaveCart();
+                            }
+                            // ClearCart();
+                            // console.log(cart);
+
+                            function CountCart(){
+                                    var countcart = 0;
+                                    for(var i in cart){
+                                           countcart+=cart[i].count;
+                                    }
+                                    return countcart;
+                            }
+                            // console.log(CountCart());
+
+                            function TotalCost(){
+                                    // This function will calculate the total cost of each item in the cart.
+                                    var totalcost = 0;
+                                    for(var i in cart){
+                                           totalcost+=cart[i].price * cart[i].count;
+                                    }
+                                    return totalcost;
+                            }
+                            // console.log(TotalCost());
+
+
+                            /*
+                            var x = ["A","B","C","D"];
+                            var y = x;
+                            y.push("E");
+                            console.log(x);
+                            console.log(y);
+                            Also, when you return an array, you do not return its copy, but its address, and any change made in it will be reflected.
+                            */
+                            /*
+                            var abc={name:"Sulabh",age:22};
+                            var xyz = abc;
+                            xyz.college="VIT";
+                            console.log(abc);
+                            console.log(xyz);
+                            */
+                             /*
+                             You can copy an array using slice.===== arrayname.slice()
+                             There is no method provided to copy an object.===== method below
+                             */
+                            function ListCart(){
+                              // return cart;
+                              // This return the reference and not the copy of array/object
+                              var cartcopy = []; // copy of the array with objects
+                              for(var i in cart){
+                                      var itemcopy = {};
+                                      for(var j in cart[i]){
+                                               itemcopy[j] = cart[i][j];
+                                      }
+                                      cartcopy.push(itemcopy);
+                              }
+                              return cartcopy;   // return cart; VVI
+                            }
+                            /*
+                            var x = ListCart();
+                            x[0].name="Chinu";
+                            console.log(cart);
+                            console.log(x);
+                            */
+
+                            // localStorage.setItem("username","Sulabh Jain");
+                            // localStorage.setItem("age",22);
+                            // localStorage.setItem("username","Sulabh Jain");
+                            function SaveCart(){ // WRITE INFORMATION TO THE LOCALSTORAGE
+                                    // localStorage.setItem("name",value);
+                                    // localStorage.setItem("username","Sulabh Jain");
+                                    // localstorage is best for "strings" and "numbers", but we have "cart" which is a complex data-structure.
+                                    // Therefore, we have to convert the datastructure to kind of string.
+                                    // JSON object is to convert js array/object as a string.
+                                    localStorage.setItem("SHOPPING-CART", JSON.stringify(cart));
+                            }
+
+
+                            function LoadCart(){
+                                    // localStorage.getItem() will return a string, and we will have to convert it to convert it to the array/object.
+                                    // Loads the cart from local storage.
+                                    cart = JSON.parse(localStorage.getItem("SHOPPING-CART"));
+                                    console.log(cart);
+                            }
+                            // DisplayCart();
+                            LoadCart();
+                            DisplayCart(); // First the cart has to be loaded from local storage, and then it has to be displayed.
+             </script>
+</body>
+</html>

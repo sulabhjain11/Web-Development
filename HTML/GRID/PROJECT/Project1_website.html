@@ -1,0 +1,223 @@
+<!-- use of grid makes life simple -->
+<!-- instead of adding "a" inside button, just make "a" and make it look like a button -->
+<!-- fontawesome is a very good site for icons.use a "i" tag to call it. -->
+<!-- unsplash.com return random images -->
+<!-- pexels for images -->
+<!-- vvvviii: here, flex-box is used inside grid-item -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+       <!-- this script must be put in the head of the website -->
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <script src="https://kit.fontawesome.com/1215799f7d.js" crossorigin="anonymous"></script>
+       <style media="screen">
+               html{
+                 font-size:100%; /*default:16px=====as per browser settings*/
+                 /* you can leave the html as default======it will be 16px by default */
+                 box-sizing: border-box; /*all the children of html will become border-box*/
+               }
+               body{
+                 background-color: #ccc;
+                 margin:30px;
+               }
+               .btn{
+                 background-color: black;
+                 text-decoration: none;
+                 color: white;
+                 padding: 0.3rem 0.9rem;
+               }
+               img{
+                 max-width:100%; /*100%: the element will take atmost width of container*/
+               }
+               .wrapper{
+                 display:grid;
+                 grid-gap:20px; /*no need to give margins between the grid-items*/
+               }
+               .navigation ul{
+                 list-style:none;
+                 padding:0; /*ul has padding by default*/
+                 display:grid;
+                 grid-template-columns: 1fr 1fr 1fr 1fr;
+                 grid-gap:20px;
+               }
+               .navigation a{
+                 text-decoration: none;
+                 display: block; /*does so that u can move "a" to the center*/
+                 text-align: center;
+                 padding: 0.8rem; /*try to add padding in the inner-most element*/
+                 color: black;
+                 text-transform: uppercase;
+                 background-color: #ddd;
+                 box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+               }
+               .navigation a:hover{
+                 background-color:black;
+                 color: white;
+               }
+               .upper-section{
+                 display: grid;
+                 grid-gap:20px;
+                 grid-template-columns:2fr 1fr;
+                 grid-template-rows:1fr 1fr;
+               }
+               .upper-section .bottom-box{
+                 grid-row-start:2;
+                 grid-row-end:3;
+                 grid-column-start:2;
+                 grid-column-end:3;
+               }
+               .upper-section .big-box{
+                 box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+                 grid-row-start:1;
+                 grid-row-end:3;
+                 grid-column-start:1;
+                 grid-column-end:2;
+                 background: url("pexels-negative-space-34140.jpg");
+                 background-size: cover;
+                 background-position: center;
+                 padding: 6rem;
+
+                 display: flex;
+                 flex-direction: column;
+                 align-items: flex-start;
+               }
+              .upper-section .big-box h1{
+                font-size:3rem;
+                color:white;
+                margin-bottom: 0;
+              }
+              .upper-section .big-box p{
+                font-size:1.2rem;
+                margin-top:0;
+              }
+              .upper-section .box{
+                background-color: #ddd;
+                box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+                display: grid;
+                justify-items: center;
+              }
+              .box .price{
+                font-size: 2rem;
+              }
+              .middle-section{
+                display: grid;
+                grid-gap:20px;
+                /* if u decrease the window size,it will remain 2 items in a row */
+                /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+                /* Therefore. */
+                grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+              }
+              .middle-section .box{
+                background-color: #ddd;
+                box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+                display:grid;
+                justify-items: center;
+              }
+              .bottom-section{
+                background-color: #ddd;
+                box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+                display:grid;
+                grid-template-columns: 2fr 1fr;
+                grid-gap:20px;
+                padding:3rem;
+              }
+              .picture-section{
+                background-color: #ddd;
+                box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+                display: grid;
+                grid-gap:20px;
+                grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+              }
+              .picture-section img{
+                width: 100%; /*the image will occupy the entire width of the container*/
+              }
+              footer{
+                background-color: #ddd;
+                box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+                text-align: center;
+                font-size:1.5rem;
+              }
+       </style>
+</head>
+<body>
+      <!-- This entire webpage is places inside wrapper class -->
+      <div class="wrapper">
+            <nav class="navigation">
+                  <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">About</a></li>
+                      <li><a href="#">Services</a></li>
+                      <li><a href="#">Contact</a></li>
+                  </ul>
+            </nav>
+            <section class="upper-section">
+                     <div class="big-box">
+                           <h1>Your Web Presence</h1>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                              incididunt  ut labore et dolore magna aliqua.</p>
+                           <a href="#" class="btn">Read More</a>
+                     </div>
+                     <div class="box top-box">
+                           <h4>Membership</h4>
+                           <p class="price">$199/mo</p>
+                           <a href="#" class="btn">Buy now</a>
+                     </div>
+                     <div class="box bottom-box">
+                           <h4>Pro Membership</h4>
+                           <p class="price">$299/mo</p>
+                           <a href="#" class="btn">Buy now</a>
+                     </div>
+            </section>
+            <section class="middle-section">
+                      <div class="box analytics">
+                            <i class="fas fa-chart-pie fa-4x"></i>
+                            <h4>Analytics</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                               incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+                      <div class="box marketing">
+                            <i class="fas fa-globe fa-4x"></i>
+                            <h4>Marketing</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                               incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+                      <div class="box development">
+                            <i class="fas fa-cog fa-4x"></i>
+                            <h4>Development</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                               incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+                      <div class="box support">
+                            <i class="fas fa-users fa-4x"></i>
+                            <h4>Support</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                               incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+            </section>
+            <section class="bottom-section">
+                      <img src="pexels-lukas-1419929.jpg" alt="">
+                      <div class="specification">
+                            <h1>Your Business On The Web</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                               incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                               nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <a href="#" class="btn">Read More</a>
+                      </div>
+            </section>
+            <section class="picture-section">
+                      <img src="https://source.unsplash.com/random/200x200" alt="">
+                      <img src="https://source.unsplash.com/random/201x200" alt="">
+                      <img src="https://source.unsplash.com/random/202x200" alt="">
+                      <img src="https://source.unsplash.com/random/203x200" alt="">
+                      <img src="https://source.unsplash.com/random/204x200" alt="">
+                      <img src="https://source.unsplash.com/random/205x200" alt="">
+                      <img src="https://source.unsplash.com/random/206x200" alt="">
+                      <img src="https://source.unsplash.com/random/207x200" alt="">
+                      <img src="https://source.unsplash.com/random/208x200" alt="">
+            </section>
+            <footer>
+                     <p>GridBiz &copy 2018</p>
+            </footer>
+      </div>
+</body>
+</html>

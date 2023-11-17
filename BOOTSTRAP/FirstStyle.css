@@ -1,0 +1,23 @@
+body{
+  background-color: black;
+}
+.header{
+  background-color: blue;
+  height: 50px;
+}
+.content{
+  min-height: 500px;
+  background-color: grey;
+}
+.main-content{
+  min-height: 500px;
+  border: 2px solid black;
+}
+.sidebar{
+  background-color: yellow;
+  overflow: scroll;
+}
+.footer{
+  background-color: red;
+  height: 50px;
+}

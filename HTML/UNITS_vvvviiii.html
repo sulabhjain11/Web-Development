@@ -1,0 +1,26 @@
+"html tag" inherits its font-size from the settings of the browser.
+
+em*px will give the value in pixel
+
+px: If the value of pixel is not mentioned, it will be inherited from the parent.
+    If the value of pixel is mentioned, it will be the pixel value and there will be no inheritance.
+em: Whatever is the font-size of the element in px, em will be multiplied to that to give the font-size in pixel.
+padding: if padding is given in em, em*font-size of the element in px.
+
+rem: this on the other hand depends only on the font-size of the html tag which depends on the settings of the browser.
+
+%:
+When the parents dimensions are automatically decided, make the dimension of the child as "auto", or do not set the dimensions at all.
+If u have set the font-size as %, it will be wrt the font-size of the parent.
+If u have set the width as %, it will be wrt the width of the parent.
+
+
+                                      WHEN TO USE WHAT?
+px: not affected when the visually impaired changes the font-size of the browser window.(remains constant)
+    therefore, use: border(border-size should not be change when the user changes the font settings)
+html{
+  font-size: "x"px; // never use px here, it will disable the user's size settings on their browser.
+  // either do not use any, or use %,em,rem.
+}
+%: most responsive==used for height,width,padding,margin======especially when parent...parent present.
+   // gets disturbing when positon is present on itself or its parent.

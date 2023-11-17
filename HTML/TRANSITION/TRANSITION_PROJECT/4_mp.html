@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+            *{
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+            .body{
+              background-color: white;
+            }
+            .wrapper{
+              background-color: grey;
+              /* background-image: radial-gradient(circle at bottom left,red,blue,transparent); */
+
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: 100vh;
+              /* align-items: center; */
+
+            }
+            .signin-signup{
+              align-self: center;
+              grid-row-start: 1;
+              grid-row-end: 2;
+              grid-column-start: 2;
+              grid-column-end: 3;
+            }
+            form{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+            }
+            .signin{
+              /* display: none; */
+              transition: all 1000s cubic-bezier(0, 1.46, 0.01, -0.07) 5s
+              /* align-items: center; */
+            }
+            .signup{
+              display: none;
+            }
+            .header{
+              font-size: 2em;
+              font-weight: 540;
+              margin-bottom: 20px;
+              text-align: center;
+              width: 60%;
+            }
+            .div{
+              background-color: #ddd;
+              border-radius: 26px;
+              margin-bottom: 20px;
+              width: 60%;
+            }
+            span{
+              position: relative;
+              top: 7px;
+              left: 8px;
+            }
+            input{
+              width: 18em;
+              height: 3em;
+              background-color: transparent;
+              border: none;
+              outline: none;
+              margin-left: 2.5%;
+            }
+            button{
+              padding: 5px 22px;
+              border-radius: 15px;
+              border: none;
+              background-color: #025393e0;
+              color: white;
+              font-weight: 200;
+              font-stretch: semi-expanded;
+            }
+            .signin-signup .submit{
+              width: 60%;
+              text-align: center;
+            }
+            .signup-question{
+              /* display: none; */
+            }
+            .signin-question{
+              /* display: none; */
+            }
+            .question-container{
+              /* align-self: start;
+              grid-row-start: 1;
+              grid-row-end: 2;
+              grid-column-start: 1;
+              grid-column-end: 2; */
+            }
+    </style>
+  </head>
+  <body>
+         <div class="wrapper">
+               <div class="question-container">
+                     <div class="signup-question question">
+                           <div class="question-header">
+                                 New here ?
+                           </div>
+                           <div class="paragraph">
+                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                           </div>
+                           <div class="upper-button upper-button1">
+                                 <button class="up-button" type="button" name="up-button1">SIGN UP</button>
+                           </div>
+                     </div>
+                     <div class="signin-question question">
+                           <div class="question-header">
+                                 One of us ?
+                           </div>
+                           <div class="paragraph">
+                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                           </div>
+                           <div class="upper-button upper-button2">
+                                 <button class="up-button" type="button" name="up-button2">SIGN IN</button>
+                           </div>
+                     </div>
+               </div>
+               <div class="signin-signup">
+                     <form class="signin" action="index.html" method="post">
+                            <div class="signin-header header">
+                                  Sign in
+                            </div>
+                            <div class="username div">
+                                  <span class="material-icons-outlined">account_circle</span>
+                                  <input type="text" name="username" placeholder="username" required>
+                            </div>
+                            <div class="password input div">
+                                  <span class="material-icons-outlined">lock</span>
+                                  <input type="password" name="password" placeholder="password" required>
+                            </div>
+                            <div class="submit">
+                                  <button type="submit" name="signin-button">LOGIN</button>
+                            </div>
+                     </form>
+                     <form class="signup" action="index.html" method="post">
+                            <div class="signup-header header">
+                                  Sign up
+                            </div>
+                            <div class="username div">
+                                  <span class="material-icons-outlined">account_circle</span>
+                                  <input type="text" name="username" placeholder="username" required>
+                            </div>
+                            <div class="email div">
+                                  <span class="material-icons-outlined">email</span>
+                                  <input type="email" name="email" placeholder="email" required>
+                            </div>
+                            <div class="password div">
+                                  <span class="material-icons-outlined">lock</span>
+                                  <input type="password" name="password" placeholder="password" required>
+                            </div>
+                            <div class="submit">
+                                  <button type="submit" name="signup-button">SIGN UP</button>
+                            </div>
+                     </form>
+               </div>
+         </div>
+         <script type="text/javascript">
+                  a = document.querySelectorAll('.up-button');
+                  a[1].disabled = true; // upper signin button is disabled as the page loads.
+                  console.log(a);
+                  for(let i=0;i<=1;i++){
+                    a[i].addEventListener("click",function(){
+                       // console.log(this.name); // "this" inside assEventListner points to the html element that has called it.
+                       if(this.name === "up-button1"){
+                           // you are inside the upper signup button.
+                           console.log(this.name);
+                           this.disabled = true;
+                           a[1].disabled = false;
+                           // document.getElementsByClassName('signup')[0].style.display = "flex";
+                           // document.getElementsByClassName('signin')[0].style.display = "flex";
+                           let b = document.getElementsByClassName('signin')[0];
+                           let c = document.getElementsByClassName('signup')[0];
+                           console.log(b);
+                           // b.style.transition = "all 100s cubic-bezier(0.25, 0.1, 0.73, 0.38) 0s";
+                           b.style.alignItems = "flex-start";
+
+                       }
+                       else if(this.name === "up-button2"){
+                           // you are inside the upper signin button.
+                           console.log(this.name);
+                           this.disabled = true;
+                           a[0].disabled = false;
+                           document.getElementsByClassName('signin')[0].style.display = "flex";
+                           document.getElementsByClassName('signup')[0].style.display = "none";
+                           let b = document.getElementsByClassName('signin-signup')[0];
+                           // console.log(b);
+                           // b.style.transform = "translate(50vw,50vh)";
+
+
+
+                       }
+                    });
+                  }
+         </script>
+  </body>
+</html>

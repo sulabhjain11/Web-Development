@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+        <script type="text/javascript">
+
+                 // This is an object.
+                 let video1 = {
+                   title: "Main hoon na",
+                   //console.log(this);===="This is wrong====An object can have only property"
+                 };
+                 console.log(video1);
+
+
+                 function video2(){
+                  this.title = "Main hoon na";
+                  console.log(this);
+                 }
+
+                 // IMP: video2() is a object in the first time.
+                 //      video2() is a regular function in the second time.
+
+
+                 // abc1 is an object, since it has been called by a new operator.
+                 let abc1 = new video2();
+                 // abc2 is not possible since it has been called by a new operator.
+                 // let abc2 = video2();
+                 video2();
+                 console.log(abc1);
+
+                 console.log(video2.title); // this is incorrect and so undefined
+        </script>
+  </body>
+</html>

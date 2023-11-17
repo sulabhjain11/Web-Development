@@ -1,0 +1,50 @@
+<!-- program 2 -->
+<!-- DRAWING INSIDE CANVAS -->
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          #canvas{
+                            border-style:solid;
+                            border-color:black;
+                            height:500px;
+                            width:800px;
+                          }
+
+            </style>
+</head>
+<body>
+             <canvas id="canvas"></canvas>
+
+             <script>
+                           var canvas = document.querySelector('canvas');
+                           var c = canvas.getContext('2d');
+                           // rectangle,line,arc/circle,bezier curves,images,text
+
+                           // rectangle=== x,y,width,height
+                           c.fillStyle="rgba(255,0,0,0.5)";
+                           c.fillRect(20,20,20,20);
+                           c.fillStyle="rgba(0,0,255,0.5)";
+                           c.fillRect(50,50,50,20);
+
+
+                           //line===x,y
+                           c.beginPath();
+                           c.moveTo(60,80); // starting point of the line
+                           c.lineTo(60,100);
+                           c.lineTo(130,120);
+                           c.lineTo(10,120);
+                           c.lineTo(200,140);
+                           c.strokeStyle="#fa34a3";
+                           c.stroke();// line will be shown
+
+
+                           //arc/circle===x,y,radius,start angle,end angle_ _ _both in radians
+                           c.beginPath(); //prevent the above line to be attached from it
+                           c.arc(200,20,15,0,Math.PI*2,false); // mapping the arc
+                           c.strokeStyle="black";
+                           c.stroke(); // drawing the arc on the screen
+                           c.fill();
+            </script>
+</body>
+</html>

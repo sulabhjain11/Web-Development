@@ -1,0 +1,45 @@
+<!-- program 4 -->
+<!-- moving a shape on the screen -->
+<!-- GENERAL WORKING OF ANIMATION: animation works by REFRESHING of page -->
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          canvas{
+                            border-style:solid;
+                            border-color:black;
+                            height:600px;
+                            width:600px;
+                          }
+             </style>
+</head>
+<body>
+             <canvas id="canvas"></canvas>
+
+             <script>
+                          var canvas = document.querySelector('canvas');
+                          var c = canvas.getContext('2d');
+                          var x=20;
+                          var dx=1;
+                          var y=20;
+                          var dy=1
+                          function hello(){
+                              requestAnimationFrame(hello); //this will call a function everytime. REFRESHING the canvas.
+                              // clearing the canvas each time the canvas refreshes====x,y,width,height
+                              c.clearRect(0,0,600,600);
+                              c.beginPath();
+                              c.arc(x,y,10,0,Math.PI*2,false);
+                              c.stroke();
+                              if (x>=300 || x<0) {
+                                dx=-dx; // If u change the addition,the velocity will change
+                              }
+                              if (y>=150 || y<0) {
+                                dy=-dy; // If u change the addition,the velocity will change
+                              }
+                              x=x+dx;
+                              y=y+dy;
+                          }
+                          hello();
+             </script>
+</body>
+</html>

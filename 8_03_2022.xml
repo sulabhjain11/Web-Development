@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<library_details>
+<library>
+<Bookname>The Da Vinci Code</Bookname>
+<Author>Brown, Dan</Author>
+<Publisher>Doubleday</Publisher>
+<Price>$24.95</Price>
+<Genre>Fiction</Genre>
+<Type>Hardback</Type>
+<Contact>0385504209</Contact>
+</library>
+<library>
+<Bookname>State Of Fear</Bookname>
+<Author>Crichton, Michael</Author>
+<Publisher>HarperCollins</Publisher>
+<Price>$27.95</Price>
+<Genre>Fiction</Genre>
+<Type>Hardback</Type>
+<Contact>0786868716</Contact>
+</library>
+<library>
+<Bookname>Night Fall</Bookname>
+<Author>Demille,Nelson</Author>
+<Publisher>Warner</Publisher>
+<Price>$26.95</Price>
+<Genre>Fiction</Genre>
+<Type>Hardback</Type>
+<Contact>0446576638</Contact>
+</library>
+</library_details>

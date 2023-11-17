@@ -1,0 +1,26 @@
+// If the container is made flex, all its children will become flex children.
+   Meaning: Its childern cannot be made to another "display"===ex no. block/inline,etc. they can be made grid though.
+// width:max-content
+   Meaning: If an element has texts, the text will not be allowed to wrap.
+            The border of the element will be as long as the size of text in one line.
+// width:min-content
+   Meaning: The text inside an element will shrink as much as it can.
+            The longest text will shrink, and the border will become its size.
+
+// How does flex work by default?
+If the flex container having children has room, and you shrink the container the children will not
+shrink as its children will follow width:max-content.
+However, if there is no space left in the container, and you shrink even further, the flex-children
+will possess the property of width:min-content, and start shrinking. As soon as the width:min-content is reached,
+the children will shrink no more, and will overflow from the container.
+
+                                APPLIED IN ALL THE FLEX-CHILDREN BY DEFAULT
+// flex-shrink=1 ===on by default
+   If the flex-shrink=0, the content will not shrink, but will remain width:max-content.
+   As a result, the children will not shrink, and the children will overflow from the container, without shrinking.
+// flex-grow=0  ====off by default(do not grow at all by default)
+   If there is some space left either row/column wise, in a flex-container, flex-grow=1 will allot the space in all of its children in the particular row/column.
+
+                                APPLIED ON THE FLEX-CONTAINER
+flex-wrap: no-wrap(default)====== Here, the children will not go to the next line when the container is shrink.
+flex-wrap: wrap============= Here, the children will go to the next line when the container is shrunk.

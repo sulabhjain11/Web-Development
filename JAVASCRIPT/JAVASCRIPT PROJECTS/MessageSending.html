@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <style>
+                        #outerbox{
+                          box-sizing:border-box;
+                          background-color:#bebef2;
+                          height:500px;
+                          width:500px;
+                          margin:auto;
+                        }
+                        #innerbox{
+                          box-sizing:border-box;
+                          background-color:white;
+                          height:250px;
+                          width:438px;
+                          position:relative;
+                          top:130px;
+                          left:30px;
+                        }
+                        h2{
+                          text-align:center;
+                        }
+                        #messagebox{
+                          width:315px;
+                          position:relative;
+                          left:50px;
+                        }
+                        #button{
+                          display:block;
+                          margin:8px;
+                          position: relative;
+                          left:162px;
+                        }
+                        #info2{
+                          border-style:solid;
+                          border-color:black;
+                          text-align:center;
+                        }
+                        span{
+                          color:red;
+                        }
+                        #popupwindow{
+                            display:none;
+                            position:relative;
+                            left:100px;
+                            box-sizing: border-box;
+                            height: 400px;
+                            width: 400px;
+                            background-color:pink;
+                        }
+            </style>
+</head>
+<body>
+            <div id="outerbox">
+                        <div id="innerbox">
+                                   <h2>A Message You Would Like To Pass</h2>
+                                   <form>
+                                                <input type="text" id="messagebox">
+                                                <!-- <input id="button" type="submit" value="Submit" onclick="OnSubmit()"> -->
+                                                <button type="button" name="button" id="button" onclick="OnSubmit()">Button</button>
+                                    </form>
+                                    <p id="info1">Last Message Delivered</p>
+                                    <p id="info2">Hello World</p>
+                                    <p>You have sent <span>0</span> messages</p>
+                                    <!-- <p><a href="#">Click here</a> to show message history</p> -->
+                                    <p><button type="button" onclick="PopUp()">clickme</button> to show message history
+                        </div>
+                        <div id="popupwindow">
+                                  <p id="showmessage"></p>
+                        </div>
+            </div>
+
+            <script type="text/javascript">
+                          var message = [];
+                          var a = document.getElementById('button');
+                          var b = document.getElementById('messagebox');
+                          var c = document.getElementById('popupwindow');
+                          var d = document.getElementById('showmessage');
+                          function OnSubmit(){
+                            message.push(b.value);
+                            console.log(message);
+                          }
+                          function PopUp(){
+                             // console.log(c.style.display);
+                             if (c.style.display=="none") {
+                                console.log("hi");
+                                c.style.display="block";
+                                d.innerHTML = message;
+                             }
+                             else {
+                                console.log("hey");
+                                c.style.display="none";
+                             }
+                          }
+            </script>
+</body>
+</html>

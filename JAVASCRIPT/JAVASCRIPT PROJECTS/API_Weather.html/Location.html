@@ -1,0 +1,62 @@
+<!-- DETECT LOCATION -->
+<!-- ALLOW TO DETECT LOCATION -->
+          <!-- DENIED LOCATION -->
+          <!-- DETECTING YOUR LOCATION -->
+                      <!-- "LOCATION" -->
+<!-- "geolocation" is an api inside "navigator" -->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+            <button id="button">Click Me</button>
+
+             <script type="text/javascript">
+                          button = document.getElementById('button');
+                           // console.log(navigator);
+                           // console.log(navigator.geolocation);
+                           button.addEventListener("click", (e)=>{
+                             // console.log("hi");
+                             if(navigator.geolocation){
+                                    // If the browser support geolocation api
+                                    navigator.geolocation.getCurrentPosition(OnSucccess,OnFailure);
+                             }
+                             else{
+                                    console.log("Your browser does not support this api");
+                             }
+                           });
+                           function OnSucccess(position){
+                                    console.log(position);
+                                    latitude = position.coords.latitude;
+                                    longitude = position.coords.longitude;
+                                    // console.log(longitude);
+                                    // The fetch returns a Promise. The promise is either successful or failure.
+                                    var a = fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=6b0d1a06bda14893a3111cad62a4f6be`);
+                                    console.log(a);
+                                    a.then(function(response){
+                                           // console.log(response.json());
+                                           return response.json();
+                                    }).then(function(data){
+                                           console.log(data);
+                                    });
+                           }
+
+                           function OnFailure(error){
+                                    if(error.code === 1){
+                                            // console.log("You have denied the permission to access your location");
+                                            button.innerHTML = "You have denied the permission to access your location";
+                                    }
+                                    else if(error.code === 2){
+                                            // console.log("The location is not available");
+                                            button.innerHTML = "The location is not available";
+                                    }
+                                    else{
+                                            // console.log("Some error has occured");
+                                            button.innerHTML = "Some error has occured";
+                                    }
+                           }
+             </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!-- A container can be made flexible by display:flex -->
+<!-- make the display of the container as flex.All its inner element will become flexible -->
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <meta charset="UTF-8"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+             <style>
+              .container{
+                 border:2px solid black;
+                 height:544px;
+                 width:100%;
+                 /* Initiaising flex-property of container*/
+                 display:flex; /*block elements will come in one line becoming kind of inline-block*/
+
+                 flex-direction:row;
+                 /* flex-direction:column; */
+                 /* flex-direction:row-reverse; */
+                 /* flex-direction:column-reverse; */
+
+                 /* For responsive design */
+                 /* flex-wrap:nowrap; */
+                 /* flex-wrap:wrap; */
+                /* flex-wrap:wrap-reverse; */
+                /* justify-content:center; */
+                /*justify-content:space-between;*/ /*between two boxes and not at the end*/
+                /*justify-content: space-evenly;*//*space between containers including starting and end.*/
+                /*justify-content: space-around;*//*everybox will have space around its left and write....Conclusion:space between containers will be more than the space at the ends*/
+
+                /*align-items:center;*//*items will be aligned vertically at the center*/
+                /* align-items:flex-end; */
+                /* align-items:flex-start; */
+                /* align-items:stretch; */
+               }
+               .item{
+                 border:2px solid green;
+                 background-color:#f0dbb5;
+                 height:200px;
+                 width:200px;
+                 margin:10px;
+                 padding:3px;
+
+               }
+           #item1{
+             /* flex properties of items */
+            /* order:40; Higher the order,later will it be shown in the container*/
+            /* flex-grow:4; */
+            /* flex-shrink:4; */
+
+            /* when flex-direction is set to row, flex-basis: will control the width */
+            /* when flex-direction is set to column, flex-basis: will control the height */
+            /* flex-basis:300px; */
+           }
+           #item3{
+            /* flex properties of items */
+            /* order:2; */
+
+           }
+           #item6{
+            /* flex properties of items */
+           /* order:2 */
+           align-self:center;
+           align-self:start;
+           align-self:end;
+           }
+        </style>
+</head>
+<body>
+             <h1>This is flexbox tutorial</h1>
+             <div class="container">
+                        <div class="item" id="item1">First Box</div>
+                        <div class="item" id="item2">Second Box</div>
+                        <div class="item" id="item3">Third Box</div>
+                        <div class="item" id="item4">Forth Box</div>
+                        <div class="item" id="item5">Fifth Box</div>
+                        <div class="item" id="item6">Sixth Box</div>
+
+             </div>
+</body>
+</html>

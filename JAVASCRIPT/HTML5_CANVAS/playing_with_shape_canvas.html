@@ -1,0 +1,33 @@
+<!-- program 3 -->
+<!DOCTYPE html>
+<html>
+<head>
+            <style>
+                        canvas{
+                           border-style:solid;
+                           border-color:black;
+                           height:600px;
+                           width:600px;
+                         }
+            </style>
+</head>
+<body>
+            <canvas id="canvas"></canvas>
+            <script>
+                          var canvas = document.querySelector('canvas');
+                          var c = canvas.getContext('2d');
+                          var color = ["blue","black","red","yellow","pink"];
+                          for (var i = 0; i <5; i++) {
+                            //circle
+                            c.beginPath();
+                            var x = (Math.random()*200)+30;
+                            var y = (Math.random()*100)+30;
+                            c.arc(x,y,10,0,Math.PI*2,false);
+                            c.strokeStyle=color[i];
+                            c.stroke();
+
+                          }
+
+            </script>
+</body>
+</html>

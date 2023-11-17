@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+              <style>
+                           ul{
+                             list-style:none;
+                           }
+                           li{
+                             display:inline-block;
+                             margin:20px;
+                           }
+              </style>
+</head>
+<body>
+              <ul id="person-detail">
+
+              </ul>
+              <script type="text/javascript">
+                           var b = document.getElementById('person-detail');
+                           var a = fetch(`https://randomuser.me/api/?results=38`);
+                           var x;
+                           console.log(a);
+                           a.then(function(response){
+                                   // console.log(response);
+                                   // console.log(response.json());
+                                   return response.json();
+                           }).then(function(data){
+                                   console.log(data);
+                                   for(var i=0;i<=9;i++){
+                                          x = document.createElement('li');
+                                          var img = document.createElement('img');
+                                          // console.log(x);
+                                          b.appendChild(x);
+                                          x.appendChild(img)
+                                          var p1 = document.createElement('p');
+                                          var p2 = document.createElement('p');
+                                          x.appendChild(p1);
+                                          x.appendChild(p2);
+                                          p1.innerHTML = data.results[i].name.title+" "+data.results[i].name.first+" "+data.results[i].name.last;
+                                          p2.innerHTML = data.results[i].location.city+" "+data.results[i].location.country+" "+data.results[i].location.postcode+" "+data.results[i].location.state;
+                                          // x.style.backgroundImage = "url(" + data.results[i].picture.medium; + ")";
+                                          img.src = data.results[i].picture.large;
+                                          // for(var i=0;i<=4;i++){
+                                          //       // var p =
+                                          // }
+                                   }
+                           });
+              </script>
+</body>
+</html>

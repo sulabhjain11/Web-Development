@@ -1,0 +1,14 @@
+.footer{
+  min-height: 500px;
+  background-color: #DDDDDD;
+}
+.list-group-item a{
+  color:black;
+  text-decoration: none;
+}
+.container-fluid .breadcrumb{
+  background-color:#000051;
+}
+.container-fluid .breadcrumb a,span{
+  color: grey;
+}

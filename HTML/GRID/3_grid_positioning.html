@@ -1,0 +1,62 @@
+<!-- Replace first from sixth in file 1 -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+       <style media="screen">
+               .container{
+                 background-color: #eee;
+                 height:500px;
+                 width:500px;
+                 border-color: black;
+                 border-style: solid;
+                 margin:100px;
+
+                 display: grid;
+                 grid-template-columns: 100px 200px 100px; /* We have assigned 3 columns with respective widths */
+                 grid-template-rows: 100px 100px 100px; /* You can use "auto" as well. This will automatically adjust size */
+
+
+               }
+               .item1{
+                 background-color: orangered;
+                 grid-row-start:2;
+                 grid-row-end:3;
+                 grid-column-start:3;
+                 grid-column-end: 4;
+               }
+               .item2{
+                 background-color: yellowgreen;
+               }
+               .item3{
+                 background-color: slateblue;
+               }
+               .item4{
+                 background-color: hotpink;
+               }
+               .item5{
+                 background-color: royalblue;
+               }
+               .item6{
+                 background-color: goldenrod;
+               }
+               .item7{
+                 background-color: pink;
+               }
+               .item8{
+                 background-color: red;
+               }
+       </style>
+</head>
+<body>
+      <div class="container">
+            <div class="item item1">First</div>
+            <div class="item item2">Second</div>
+            <div class="item item3">Third</div>
+            <div class="item item4">Fourth</div>
+            <div class="item item5">Fifth</div>
+            <div class="item item6">Sixth</div>
+            <div class="item item7">Seventh</div>
+            <div class="item item8">Eight</div>
+      </div>
+</body>
+</html>

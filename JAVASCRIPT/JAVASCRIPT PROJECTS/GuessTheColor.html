@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          body{
+                            background-color:black;
+                          }
+                         #container1{
+                           border-style:solid;
+                           border-color:black;
+                           width:668px;
+                           margin:auto;
+
+                         }
+                         .insidecontainer{
+                           height:200px;
+                           width:200px;
+                           background:pink;
+                           margin:10px;
+                           display:inline-block;
+                           border-radius:40px;
+
+                         }
+                         h1{
+                           background-color:#6969f0;
+                           color:white;
+                           margin:0px;
+                           padding:10px;
+                           text-align:center;
+                           width:100%;
+                         }
+                         #color{
+                           font-size:60px;
+                           display:block;
+                         }
+                         button{
+                           border:none;
+                           background-color:white;
+                           color:gray;
+                           padding:5px;
+                         }
+                         #stripe{
+                           width:668px;
+                           margin:auto;
+                           padding:5px;
+                           background-color:white;
+                         }
+                         .genre{
+                           float:right;
+                           margin-left:2px;
+                         }
+                         #message{
+                           text-align:center;
+                           display:inline-block;
+                           width:400px;
+                         }
+                         button:hover{
+                           background-color:#43d5e8;
+                           border-radius:2px;
+                           color:white;
+                           cursor:pointer;
+                         }
+
+             </style>
+</head>
+<body>
+              <h1>THE GREAT <span id="color">RGB</span> GUESSING GAME</h1>
+              <div id="stripe">
+                        <button id="newcolor" onclick="playNewGame()">NEW COLORS</button>
+                        <span id="message">hi</span>
+                        <button class="genre" id="easy" onclick="easyMode()">EASY</button>
+                        <button class="genre" id="hard" onclick="hardMode()">HARD</button>
+              </div>
+              <div id="container1">
+                        <div class="insidecontainer" id="container2" ></div>
+                        <div class="insidecontainer" id="container3" ></div>
+                        <div class="insidecontainer" id="container4" ></div>
+                        <div class="insidecontainer" id="container5" ></div>
+                        <div class="insidecontainer" id="container6" ></div>
+                        <div class="insidecontainer" id="container7" ></div>
+              </div>
+              <script>
+
+                             var no_of_boxes;
+                             var message = document.getElementById('message');
+                             var answer;
+                             var boxes = document.querySelectorAll('.insidecontainer'); // will return an array of all the containers
+                             var colors=[];
+
+
+
+                             function  playNewGame(){
+
+                             }
+                             function easyMode(){
+
+                             }
+                             function hardMode(){
+                               message.textContent="Let's play hard mode";
+                               var hardButton = document.getElementById('hard');
+                               hardButton.style.background="pink";
+                               hardButton.style.color="red";
+                               var easyButton= document.getElementById('easy');
+                               easyButton.style.background="white";
+                               easyButton.style.color="grey";
+                               colors=storeColorsGenerated(6);
+                               answer = colors[Math.floor(Math.random()*6)];
+                               document.getElementById('color').innerHTML=answer;
+                               for (var i = 0; i < boxes.length; i++) {
+                                 boxes[i].style.background=colors[i];
+
+                               }
+                               run();
+                             }
+
+
+                             function generateRandomColors(){
+                               // r,g,b range from [0,255]
+                               // Math.random gives value [0,1)
+                               var r = Math.random()*256;
+                               r = Math.floor(r);
+                               var g = Math.random()*256;
+                               g = Math.floor(g);
+                               var b = Math.random()*256;
+                               b = Math.floor(b);
+                               return 'rgb('+r+', '+g+', '+b+')';
+                               // 'rgb(r, g, b)' ==== returning a string
+                             }
+
+                             function storeColorsGenerated(num){
+                               var arr=[];
+                               for (var i = 0; i <= num-1; i++) {
+                                 arr.push(generateRandomColors());
+                               }
+                               return arr; // IMPORTANT: returns an array
+                             }
+
+                   function run(){
+                         for (var i = 0; i <colors.length; i++)
+                         {
+
+                           boxes[i].addEventListener("click",function(){
+                           var clickedColor=this.style.backgroundColor;
+                           if(clickedColor===answer){
+                             message.textContent="Correct";
+                           }
+                           else{
+                             message.textContent="Wrong";
+                           }
+                           });
+
+                         }
+}
+
+
+
+              </script>
+</body>
+</html>

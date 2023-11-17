@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          body{
+                            background-color:hsl(210deg 36% 96%);
+                          }
+                          #container{
+                            /* border-style:solid; */
+                            /* border-color:black; */
+                            max-width:620px;
+                            margin:auto;
+
+                          }
+                          h1{
+                            color:hsl(209deg 21% 15%);
+                            text-align:center;
+                            margin-bottom:6px;
+                          }
+                          h4{
+                            margin-bottom:5px;
+                            text-align:center;
+                          }
+                          p{
+                            margin-top:5px;
+                            text-align:center;
+                            color:hsl(205 78% 60% / 10);
+                          }
+                          #review{
+                            color:black;
+                            line-height: 25px;
+                            letter-spacing:2px;
+                          }
+                          #container2_underline{
+                            background-color:#26c6da;
+                            height:5px;
+                            width:95px;
+                            margin:auto;
+                          }
+                          #container1_title{
+                            margin-bottom:55px;
+                            margin-top:60px;
+                          }
+                        #imagecontainer{
+                          border-radius:100px;
+                          background-image:url('https://th.bing.com/th/id/OIP.y-nGyqT5AwES8oqp344z4gHaHa?w=182&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7');
+                          height:120px;
+                          width:120px;
+                          background-size:cover; /*very important*/
+                          margin:auto;
+                        }
+                        #container3{
+                          padding:30px;
+                          background-color:white;
+                          border-radius:10px;
+                          box-shadow:4px 4px #bdbdbd26;
+                        }
+                        #container5_review{
+                          margin-bottom:5px;
+                          height:118px;
+                        }
+                        #changebutton{
+                          width:80px;
+                          margin:auto;
+                        }
+                        #randombutton{
+                          width:100px;
+                          margin:auto;
+                        }
+                        button{
+                          color: hsl(205deg 78% 60%);
+                          /* background-color: hsl(205deg 100% 96%); */
+                          margin:5px;
+                          cursor:pointer;
+                          border:none;
+                          background-color:white;
+                          padding:5px;
+                          font-size:25px;
+                        }
+                        #button3{
+                          background-color: hsl(205deg 100% 96%);
+                          padding:4px;
+                          font-size:14px;
+                          border-style:solid;
+                          border-radius:5px;
+                          border-top-color:#00a6ff;
+                          border-left-color:#00a6ff;
+                          border-bottom-color:blue;
+                          border-right-color:blue;
+                          border-width:1px;
+                        }
+                        button:hover{
+                          color:hsl(205deg 86% 17%);
+                        }
+                        #button3:hover{
+                          background-color:hsl(205deg 78% 60%);
+                          color:hsl(205deg 86% 17%)
+                        }
+             </style>
+</head>
+<body>
+             <div id="container">
+                         <div id="container1_title">
+                                  <h1>Our Reviews</h1>
+                                  <div id="container2_underline"></div>
+                         </div>
+
+                        <div id="container3">
+                                   <div id="container4_profile">
+                                              <div id="imagecontainer"></div>
+                                              <h4 id="givename">Name</h4>
+                                              <p id="givedeveloper">Developer</p>
+                                   </div>
+                                   <div id="container5_review">
+                                             <p id="review"></p>
+                                   </div>
+                                   <div id="changebutton">
+                                             <button id="previousbutton"> < </button>
+                                             <button id="nextbutton"> > </button>
+                                   </div>
+                                   <div id="randombutton">
+                                             <button id="button3">Surprise Me</button>
+                                   </div>
+                        </div>
+             </div>
+
+             <script>
+
+                   const persondetail = [{
+                     id: 1,
+                     name: "susan smith",
+                     designation:"web developer",
+                     photo: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg",
+                     reviewdetail:"I'm baby meggings twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, cold-pressed four dollar toast everyday carry"
+                   },
+                   {
+                     id: 2,
+                     name: "Anna Johnson",
+                     designation: "Web Designer",
+                     photo: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883409/person-2_np9x5l.jpg",
+                     reviewdetail: "Helvetica artisan kinfolk thundercats lumbersexual blue bottle. Disrupt glossier gastropub deep v vice franzen hell of brooklyn twee enamel pin fashion axe.photo booth jean shorts artisan narwhal."
+                   },
+                   {
+                     id: 3,
+                     name: "Peter Johnes",
+                     designation: "Intern",
+                     photo: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883417/person-3_ipa0mj.jpg",
+                     reviewdetail: "Sriracha literally flexitarian irony, vape marfa unicorn. Glossier tattooed 8-bit, fixie waistcoat offal activated charcoal slow-carb marfa hell of pabst raclette post-ironic jianbing swag."
+                   },
+                   {
+                     id: 4,
+                     name: "Bill Anderson",
+                     designation: "The Boss",
+                     photo: "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883423/person-4_t9nxjt.jpg",
+                     reviewdetail: "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. "
+                   }
+                   ];
+                   var nextbutton = document.getElementById('nextbutton');
+                   var previousbutton = document.getElementById('previousbutton');
+                   var length = persondetail.length;
+                   var position=0;
+                   nextbutton.addEventListener("click",function(){
+                        position++;
+                        if (position>persondetail.length-1) {
+                            position = 0;
+                        }
+
+                        showPersonDetail(position);
+                   });
+                   previousbutton.addEventListener("click",function(){
+                        position--;
+                        if (position<0) {
+                            position = persondetail.length-1;
+                        }
+
+                        showPersonDetail(position);
+                   });
+
+                   function showPersonDetail(position){
+                        var imagecontainer = document.getElementById('imagecontainer');
+                        var givename = document.getElementById('givename');
+                        var givedeveloper = document.getElementById('givedeveloper');
+                        var givereview = document.getElementById('review');
+                        givename.innerHTML = persondetail[position].name;
+                        imagecontainer.style.backgroundImage = "url("+persondetail[position].photo+")";
+                        givedeveloper.innerHTML = persondetail[position].designation;
+                        givereview.innerHTML = persondetail[position].reviewdetail;
+                   }
+                   showPersonDetail(0);
+
+                   var surpriseme = document.getElementById('button3');
+                   var randomposition;
+                   surpriseme.addEventListener("click",function(){
+                        randomposition = Math.floor(Math.random()*4); //[0,3]
+                        if (randomposition===position) {
+                           randomposition+=1;
+                        }
+                        console.log(position);
+                        // console.log(randomposition);
+                        showPersonDetail(randomposition);
+                   });
+
+             </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- Event: a signal that something has happened -->
+<!-- click
+        contextmenu
+        mouseover/mouseout
+        mousedown/mouseup
+        mousemove
+
+        submit
+        focus
+
+      DOMContentLoaded
+
+      transitionend -->
+<!DOCTYPE html>
+<html>
+<head>
+            <style>
+                        .container1{
+                          border-color:black;
+                          border-style:solid;
+                          border-width:3px;
+                          background-color:red;
+                        }
+                        #btn{
+                          position:relative;
+                          top:2px;
+                          border-color:black;
+                          border-style:solid;
+                          background-color:black;
+                          color:white;
+                          border-radius:8px;
+                          box-shadow:2px 2px grey;
+                        }
+            </style>
+</head>
+<body>
+             <div class="container1" id="container2">
+                        <h1>This is a heading</h1>
+                        <p id="first">PK (transl. Tipsy; Hindi pronunciation: [pɪjəkːəɽ]) is a 2014 Indian Hindi-language satire comedy-drama film[c] directed by Rajkumar Hirani and written by Hirani and Abhijat Joshi. It was jointly produced by Hirani and Vidhu Vinod Chopra under the banners Rajkumar Hirani Films and Vinod Chopra Films respectively. </p>
+             </div>
+             <button id="btn" onclick="abc()">Show/Hide</button>
+             <script>
+                           function abc(){
+                             // let b = document.getElementById('');
+                             let c = document.getElementById('container2');
+                             if(c.style.display !='none'){
+                                    c.style.display='none';
+                             }
+                             else{
+                                    c.style.display='block';
+                             }
+
+                           }
+             </script>
+</body>
+</html>

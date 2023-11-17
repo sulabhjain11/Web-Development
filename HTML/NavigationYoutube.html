@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+<head>
+             <style>
+                         .navbar{
+                           background-color: black;/*try red*/
+                           border-style:solid;
+                           border-color:black;
+                           border-radius:20px;
+                         }
+                         .navbar ul{
+                           background-color: black;  /*try grey*/
+                           border-style:solid;
+                           border-color:black;
+                           overflow: auto;   /*written in the parent of an element....when we float some element, it overflows from the parent*/
+
+                         }
+                         .navbar li{
+                           background-color: black;/* try yellow*/
+                           /* border-style:solid; */
+                           /* border-color:black; */
+                           /* when u remove this, the border of a will remove automatically */
+                           list-style:none;
+                           float:left;
+                         }
+                         .navbar ul li a{
+                           text-decoration: none;
+                           color:white;
+                           background-color: black;
+                           /* border:none;====this will not work, as child will inherit property from the parent */
+                           float:left;
+                           padding: 3px;
+                           margin:8px;
+                         }
+                         .navbar ul li a:hover{
+                           background-color: #caa8a8a1;
+                           color:black;
+                         }
+                         .search{
+                           float:right;
+                           margin-right: 200px;
+                         }
+                         .navbar input{
+                          border-radius: 10px;
+                          margin-top: 10px;
+                         }
+             </style>
+</head>
+<body>
+            <nav class="navbar">
+                       <ul>
+                              <li><a href="#">Home</a></li>
+                              <li><a href="#">About</a></li>
+                              <li><a href="#">Services</a></li>
+                              <li><a href="#">Contact us</a></li>
+                              <div class="search">
+                                         <input type="text" name="search" id="search" placeholder="Search this website">
+                              </div>
+                      </ul>
+            </nav>
+</body>
+</html>

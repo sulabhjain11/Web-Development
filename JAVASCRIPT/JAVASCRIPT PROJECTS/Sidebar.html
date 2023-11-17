@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          body{
+                            background-color:hsl(210deg 36% 96%);
+                            height:1000px;
+                            width:1500px;
+                          }
+
+                           #container1{
+                            /* background-color:gray;
+                            border-style:solid;
+                            border-color:black; */
+
+                            height:41px;
+                            width:46px;
+                            /* padding:2px; */
+                            position:relative;
+                            left:1422px;
+                            top:40px;
+                          }
+                          .container{
+                            height:2px;
+                            width:30px;
+                            background-color:blue;
+                            margin:auto;
+                            margin-bottom:6px;
+                            margin-top:6px;
+                            padding:2px;
+                            border-radius:5px;
+                          }
+                          #sidebar{
+                            display:inline-block;
+                            background-color: white;
+                            border-color:black;
+                            border-style:solid;
+                            position:relative;
+                            top:-50px;
+                            left:-8px;
+                            width:400px;
+                          }
+                          h2{
+                            letter-spacing:2px;
+                          }
+             </style>
+</head>
+<body>
+                <div id="container1" onclick="hi()">
+                          <div class="container"></div>
+                          <div class="container"></div>
+                          <div class="container"></div>
+                </div>
+                <div id="sidebar">
+                           <h2><span>Coding</span><span>Addict</span></h2>
+                </div>
+
+
+
+
+             <script>
+                            var container = document.querySelectorAll('.container');
+                            // var i=1;
+                            setInterval(abc,1100);
+
+
+                            function abc(){
+                                   if (container[0].style.width==="30px") {
+                                        for (let i = 0; i < container.length; i++) {
+                                                container[i].style.width="40px";
+                                                container[i].style.height="3px";
+                                                // console.log("Hi1");
+                                             }
+                                   }
+                                   else{
+                                        for (let i = 0; i < container.length; i++) {
+                                                container[i].style.width="30px";
+                                                container[i].style.height="2px";
+                                                // console.log("Hi2");
+                                              }
+                                   }
+                            }
+
+                           function hi(){
+                             console.log("hi");
+                           }
+
+
+             </script>
+</body>
+</html>

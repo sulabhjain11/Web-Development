@@ -1,0 +1,27 @@
+.header{
+  background-color: #EEEEEE;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.carousel-image{
+  height: 85vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.bg-img-1{
+  background-image: url("/BOOTSTRAP/R-M-TRADING/IMAGES/depositphotos_34653063-stock-photo-metal-pipes.jpg");
+}
+.bg-img-2{
+  background-image: url("/BOOTSTRAP/R-M-TRADING/IMAGES/images.jpg");
+}
+.bg-img-3{
+  background-image: url("/BOOTSTRAP/R-M-TRADING/IMAGES/img-20210822-075239-653-jpg-500x500.webp");
+}
+.content-1, .content-2{
+  padding:10vh;
+}
+.content-1 a, .content-2 a{
+  text-decoration: none;
+  color: black;
+}

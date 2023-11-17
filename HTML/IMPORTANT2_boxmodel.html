@@ -1,0 +1,42 @@
+<!-- element,padding,border,margin -->
+<!DOCTYPE html>
+<html
+<head>
+            <style>
+                         body{
+                           background-color:cyan;
+                         }
+                        .container{
+                          box-sizing:border-box; /*content-box*/
+                          /* border-box will not increase the total size upto certain extent more then the content-box */
+                          /* Total height and width of the container will depend on height,width,padding,margin */
+                          height:300px;
+                          width:300px;
+                          background-color:burlywood;
+                          border-style:solid;
+                          border-width:3px;
+                          border-color:red;
+                          padding:10px; /*If u increase the padding or margin,total size of the conten will remain fix in border-box*/
+                          margin:10px;
+                          border-radius:20px;
+                        }
+            </style>
+</head>
+<body>
+            <div class="container">
+                       <h3> This is my heading</h3>
+                       <p id="first">PK (transl. Tipsy; Hindi pronunciation: [pɪjəkːəɽ]) is a 2014 Indian Hindi-language satire comedy-drama film[c] directed by Rajkumar Hirani and written by Hirani and Abhijat Joshi. It was jointly produced by Hirani and Vidhu Vinod Chopra under the banners Rajkumar Hirani Films and Vinod Chopra Films respectively. </p>
+            </div>
+
+            <div class="container">
+                       <h3> This is my heading</h3>
+                       <p id="second">PK (transl. Tipsy; Hindi pronunciation: [pɪjəkːəɽ]) is a 2014 Indian Hindi-language satire comedy-drama film[c] directed by Rajkumar Hirani and written by Hirani and Abhijat Joshi. It was jointly produced by Hirani and Vidhu Vinod Chopra under the banners Rajkumar Hirani Films and Vinod Chopra Films respectively. </p>
+            </div>
+
+            <div class="container">
+                       <h3> This is my heading</h3>
+                       <p id="third">PK (transl. Tipsy; Hindi pronunciation: [pɪjəkːəɽ]) is a 2014 Indian Hindi-language satire comedy-drama film[c] directed by Rajkumar Hirani and written by Hirani and Abhijat Joshi. It was jointly produced by Hirani and Vidhu Vinod Chopra under the banners Rajkumar Hirani Films and Vinod Chopra Films respectively. </p>
+            </div>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+ <!-- if (Math.sqrt(Math.pow((x1-x),2) + Math.pow((y1-y),2))<radius + radius1){
+x = Math.floor(Math.random()*((window.innerWidth-20-radius)-(0+radius))+(0+radius));-->
+<!DOCTYPE html>
+<html>
+<head>
+            <style>
+                         canvas{
+                           border-style:solid;
+                           border-color:black;
+                         }
+            </style>
+</head>
+<body>
+             <canvas></canvas>
+             <script>
+                           var canvas = document.querySelector('canvas');
+                           canvas.height = window.innerHeight;
+                           canvas.width = window.innerWidth;
+                           var x,y,radius=20,color;
+                           var x1,y1,radius1;
+                           var x2,y2,x3,y3;
+                           var p;
+                           var array = [];
+                           var colors = ["blue","green"];
+                           var c = canvas.getContext('2d');
+
+                           function Circles(x,y,radius,color,dx,dy){
+                             this.dx = dx;
+                             this.dy = dy;
+                             this.x = x;
+                             this.y = y;
+                             this.radius = radius;
+                             this.color = color;
+                             this.Draw = function(){
+                               c.beginPath();
+                               c.arc(x,y,radius,0,Math.PI*2,false);
+                               c.strokeStyle = color;
+                               c.stroke();
+                             }
+                             this.MoveCircle = function(){
+                                if (x > window.innerWidth || x < radius) {
+                                  dx = -dx;
+                                }
+                                if (y > window.innerHeight || y < radius) {
+                                  dy = -dy;
+                                }
+                                x = x + dx;
+                                // console.log(x);
+                                y = y + dy;
+                                // console.log(y);
+                             }
+                             this.fun1 = function(){
+                               
+                             }
+                           }
+
+                           function PositionOfCircle(){
+                               for (var i = 0; i < 100; i++) {
+                                  p=0;
+                                  if (i==0) {
+                                      x = Math.floor(Math.random()*window.innerWidth);
+                                      y = Math.floor(Math.random()*window.innerHeight);
+                                      // array[i].x = x;
+                                      // array[i].y = y;
+                                  }
+                                  if (i>=1){
+                                      x = Math.floor(Math.random()*window.innerWidth);
+                                      y = Math.floor(Math.random()*window.innerHeight);
+                                      for (var j = 0;j < i; j++) {
+                                         x1 = array[j].x;
+                                         y1 = array[j].y;
+                                         if (Math.sqrt(Math.pow((x1-x),2) + Math.pow((y1-y),2))<radius + radius) {
+                                           i--;
+                                           p=1;
+                                           break;
+                                         }
+                                      }
+                                 }
+                                 if (p==0) {
+                                   // array[i].x = x;
+                                   // array[i].y = y;
+                                   color = colors[Math.floor(Math.random()*2)];
+                                   array.push(new Circles(x,y,radius,color,1,1));
+                                 }
+                               }
+                           }
+
+
+                           PositionOfCircle();
+                           function Animate(){
+                             requestAnimationFrame(Animate);
+                             c.clearRect(0,0,window.innerWidth,window.innerHeight);
+
+
+
+                             // array[4].Draw();
+                             // CollisionTheory();
+                             for (var i = 0; i < array.length; i++) {
+                               CollisionTheory();
+                                array[i].Draw();
+                                array[i].MoveCircle();
+                             }
+                           }
+
+                          Animate();
+                          // what happens after one circle collides with all other circle?
+                          function CollisionTheory(){
+                             for (var i = 0; i < 100; i++) {
+                               for (var j = 0; j < 100 ; j++) {
+                                  if (i!==j) {
+                                       x2 = array[i].x;
+                                       y2 = array[i].y;
+                                       x3 = array[j].x;
+                                       y3 = array[j].y;
+                                       // m = (y3 - y2)/(x3 - x2);
+                                       // theta = Math.atan(m);
+                                       if (Math.sqrt(Math.pow((x2-x3),2) + Math.pow((y2-y3),2))<radius + radius) {
+                                          array[i].dx = -array[j].dx;
+                                          array[i].dy = -array[j].dy;
+                                          array[j].dx = -array[i].dx;
+                                          array[j].dy = -array[i].dy;
+
+                                       }
+                                  }
+                               }
+                             }
+                          }
+
+             </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.sidebar{
+  min-height: 500px;
+  background-color: #dddddd;
+  border-right: 1px solid grey;
+  border-left: 1px solid grey;
+}
+.main-content{
+  min-height: 500px;
+  background-color: #f4f4f4;
+}

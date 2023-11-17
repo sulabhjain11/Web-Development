@@ -1,0 +1,71 @@
+<!-- static(default) ===== does not allow top,bottom,right,left
+     relative
+     fixed
+     absolute -->
+<!-- relative: The element will come out of the control-flow.
+               The next element will not take its place.
+               It's initial position will be where it was originally supposed to be.
+               It will move with respect to its original position. -->
+
+<!-- absolute: The element will come out of the control-flow.
+               The next element will take its place.
+               Its initial position will be where it was earlier.
+               However, when you apply top/bottom/right/left, it will move with respect to its previous
+               parent/s...if at all they are "positioned(except static)". If none of the previous parents
+               are positioned, it will move w.r.t the body -->
+<!DOCTYPE html>
+<html>
+<head>
+      <style>
+              html{
+                background-color:black;
+                margin:0px;
+                padding:0px;
+              }
+              body{
+                background-color:red;
+                margin:20px;
+                padding:20px;
+              }
+              .container{
+                background-color:blue;
+                height:500px;
+                width:500px;
+                margin:20px;
+                padding:20px;
+              }
+              .one{
+                height:100px;
+                width:100px;
+                background-color:yellow;
+                margin:20px;
+                padding:20px;
+              }
+              .two{
+                height:100px;
+                width:100px;
+                background-color:pink;
+                margin:20px;
+                padding:20px;
+                position: absolute;
+                /* top:0px; */
+                /* left:0px; */
+              }
+              .three{
+                height:100px;
+                width:100px;
+                background-color:green;
+                margin:20px;
+                padding:20px;
+              }
+
+      </style>
+</head>
+<body>
+       <div class="container">
+             <div class="one"></div>
+             <div class="two"></div>
+             <div class="three"></div>
+       </div>
+</body>
+</html>

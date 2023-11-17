@@ -1,0 +1,57 @@
+<!-- THIS -->
+<!-- 1) When you call a function, "this" refers to the global object.
+     2) When you call a function with a new operator(constructor), "this" will refer to the function object.-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+         <script type="text/javascript">
+                 console.log(this); // This "this" refers to the window object
+                 let fruit = {
+                     apple: 10,
+                     guava: 20,
+                     mango: "Not present",
+                     name: function(name1){
+                           console.log(this); // This "this" belong to the object it belongs to.
+                           console.log("You have chosen"+name1+"whose quantity is:"+this[name1]);
+                         },
+                     result: function(){
+
+                     }
+                  };
+                  fruit.name("mango");
+                  function video(){
+                    console.log("you are inside a function,Therefore this will point to the window object");
+                    console.log(this);
+                  }
+                  video();
+
+                  function video2(title){
+                    this.name="a";
+                    console.log("If new is used, this function becomes a constructor/object");
+                    console.log(this);
+                  }
+                  let a = new video2("a");
+
+                  let video3 = {
+                    title: "a",
+                    tags: ["jhj",5],
+                    showTags: function(){
+                      function abc(){
+                        console.log("You are inside the regular function");
+                        console.log(this); // Here, "this" refers to the window object and not the video3 object,
+                                           // since, this is present inside the regular function and not property function.
+
+                        </object>
+                      }
+                      abc();
+                    }
+                  };
+                  video3.showTags();
+
+         </script>
+  </body>
+</html>

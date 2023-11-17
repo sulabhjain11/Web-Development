@@ -1,0 +1,76 @@
+<!-- readyState: tells us about the status of the request. -->
+<!-- status: tells us what exactly has happened to the request. -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+         <button type="button" name="button">Click Me</button>
+         <script type="text/javascript">
+                  let a = document.querySelector("button");
+                  // console.log(a);
+                  a.addEventListener("click",function(){
+
+                       // create a http request evertime the button is clicked.
+                       let xhr = new XMLHttpRequest();
+                       console.log(xhr); // on creating the object, readyState=0
+
+                       // open the above object
+
+                       // xhr.open('GET','abc.txt',true);
+                       // xhr.open('GET','http://dummy.restapiexample.com/api/v1/employees',true);
+
+
+                       xhr.open('POST','http://dummy.restapiexample.com/api/v1/create',true); // this POST is used to create userinfo on the given database======therefore, certain information will have to be passed on.
+                       // While using GET, you have to send the form data in the link.
+                       // While using POST, you have to send data in a header, and not in the link.
+                       xhr.getResponseHeader('Content-type','application/x-www-form-urlencoded');
+
+
+
+
+
+                       // The client wants to receive some file from the server using the GET method, without blocking the next operation in the execution flow(also without refreshing the entire html document and beginning from the start again).
+                       // tells the user not to wait for the server response, and carry on.
+                       console.log(xhr); // on opening the object, readyState=1
+
+                       // What to do when the response is in progress.
+                       xhr.onprogress = function(){
+                             console.log("The response is in progress");
+                             console.log(xhr);
+                       }
+
+                       //
+                       xhr.onreadystatechange = function(){
+                            // readyState = 0,1,2,3,4.
+                            console.log("Ready state is: ",xhr.readyState);
+                       }
+
+                       // What to do when the response is ready.
+                       // onload is triggered only when the readyState=4
+                       xhr.onload = function(){
+                             if(this.status === 200){
+                                // the response is ready by the server, and the client has received the entire document.
+                                // checking for 400 will prevent buffering.
+                                console.log("The server is ready with the response");
+                                console.log(xhr);
+                                // When the server is ready with the response, AND the entire document has reached to the client.
+                                console.log(this.responseText);
+                             }
+                             else{
+                                console.log(this.status, "error has occured.");
+                             }
+                       }
+
+                       // The client sends the request to the server.==== This is the first step.
+                       console.log("The client has sent the request to the server");
+                       // xhr.send(); // FOR GET.
+
+                       let params = `{"name":"testhjsd","salary":"123","age":"23"}`;
+                       xhr.send(params);
+                  });
+         </script>
+  </body>
+</html>

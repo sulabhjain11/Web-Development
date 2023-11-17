@@ -1,0 +1,65 @@
+<!-- collision of two circles -->
+<!-- MOVE A CIRCLE WITH THE MOUSE -->
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          canvas{
+                            border-style:solid;
+                            border-color:black;
+                          }
+             </style>
+</head>
+<body>
+             <canvas></canvas>
+
+             <script>
+                           var canvas = document.querySelector('canvas');
+                           canvas.height = window.innerHeight-50;
+                           canvas.width = window.innerWidth-50;
+                           // console.log(canvas);
+
+                           // create an object for storing the x and y coordinates of  mouse
+                           var MousePosition = {x:undefined,y:undefined};
+
+                           // event listener
+                           window.addEventListener('mousemove',function(event){
+                             MousePosition.x = event.x;
+                             MousePosition.y = event.y;
+                             console.log(event);
+                           });
+
+                            // drawing a circle
+                            var c = canvas.getContext('2d');
+                            var radius = 20;
+
+
+                            //refreshing the page
+                            function animate(){
+                              requestAnimationFrame(animate);
+                              c.clearRect(0,0,window.innerWidth-40,window.innerHeight-30);
+                              c.beginPath();
+                              c.arc(MousePosition.x,MousePosition.y,radius,0,Math.PI*2,false);
+                              c.fillStyle = "red";
+                              c.fill();
+
+                              // drawing another circle
+                              c.beginPath();
+                              c.arc(100,100,50,Math.PI*2,false);
+                              c.fillStyle = "grey";
+                              c.fill();
+                              OnCollision();
+                            }
+                            animate();
+                            function OnCollision(){
+                              if (Math.sqrt(Math.pow((MousePosition.x - 100),2)+Math.pow((MousePosition.y - 100),2))<=radius+50) {
+                                // c.beginPath();
+                                c.arc(100,100,50,Math.PI*2,false);
+                                c.fillStyle = "pink";
+                                c.fill();
+                              }
+                            }
+
+             </script>
+</body>
+</html>

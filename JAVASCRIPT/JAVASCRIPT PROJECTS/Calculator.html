@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                         .calculator{
+                           border-style:solid;
+                           border-color:black;
+                           padding:20px;
+                           width:435px;
+                           margin:auto;
+                           height:401px;
+                         }
+                         #input{
+                           border-style:solid;
+                           border-color:gray;
+                           height:60px;
+                           width:407px;
+                           margin-right:10px;
+                           margin-left:10px;
+                         }
+                         .numbers div{
+                           display:inline-block;
+                           border-style:solid;
+                           border-color:gray;
+                           padding:10px;
+                           margin-top:10px;
+                           margin-bottom:10px;
+                           width:60px;
+                           margin-right:10px;
+                           margin-left:10px;
+                           text-align:center;
+                           cursor:pointer;
+                         }
+                         #equals{
+                           position:relative;
+                           display:inline-block;
+                           border-style:solid;
+                           border-color:gray;
+                           padding:10px;
+                           margin-top:10px;
+                           margin-bottom:10px;
+                           width:60px;
+                           margin-right:10px;
+                           margin-left:10px;
+                           text-align:center;
+                           cursor:pointer;
+                           bottom:252px;
+                           left:326px;
+                           height:208px;
+                        }
+                        #buttons{
+                          margin-top:10px;
+                        }
+                        #buttons div div:hover{
+                          background:#e8dbdb;
+                        }
+                        #equals:hover{
+                          background:#e8dbdb;
+                        }
+
+             </style>
+</head>
+<body>
+             <div class="calculator">
+                      <div id="input"></div>
+                      <div id="buttons">
+                                <div class="numbers" id="operators">
+                                           <div onclick="view('+')">+</div>
+                                           <div onclick="view('-')">-</div>
+                                           <div onclick="view('*')">&times;</div>
+                                           <div onclick="view('/')">&divide;</div>
+                                </div>
+                                <div class="numbers">
+                                           <div onclick="view('7')">7</div>
+                                           <div onclick="view('8')">8</div>
+                                           <div onclick="view('9')">9</div>
+
+                                </div>
+                                <div class="numbers">
+                                           <div onclick="view('4')">4</div>
+                                           <div onclick="view('5')">5</div>
+                                           <div onclick="view('6')">6</div>
+                                </div>
+                                <div class="numbers">
+                                           <div onclick="view('1')">1</div>
+                                           <div onclick="view('2')">2</div>
+                                           <div onclick="view('3')">3</div>
+                                </div>
+                                <div class="numbers">
+                                           <div onclick="view('0')">0</div>
+                                           <div onclick="view('.')">.</div>
+                                           <div onclick="clr()">C</div>
+                                </div>
+                                <div id="equals" onclick="compute()">=</div>
+                      </div>
+              </div>
+              <script>
+                            function view(num){
+                                document.getElementById('input').innerHTML+=num; //num is a string
+                            }
+                            function clr(){
+                               document.getElementById('input').innerHTML="";
+                            }
+                            function compute(){
+                                var x = document.getElementById('input').innerHTML;
+                                var y = eval(x); // function in javascript that is used to calculate that on the screen
+                                document.getElementById('input').innerHTML=y;
+                            }
+              </script>
+</body>
+</html>

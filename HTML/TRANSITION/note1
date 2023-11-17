@@ -1,0 +1,9 @@
+// transition is followed by certain events that had taken place
+// when you move a mouse over something, move a mouse away from something, click on something, etc than u can transition that element from before the event and after the event.
+
+// transition:
+   transition-delay: time|initial|inherit === time: in s(time after which the transion will start)
+   transition-duration: time|initial|inherit === time: in s(time taken for the transition effect to complete)
+   transition-property: none|all|property|initial|inherit; (height, width)
+   transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|step-start|
+                               step-end|steps(int,start|end)|cubic-bezier(n,n,n,n)|initial|inherit;

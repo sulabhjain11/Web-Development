@@ -1,0 +1,95 @@
+<!-- =======================================VALIDATION============================================== -->
+<!-- VALIDATION RULES: SPACE RELATED VALIDITY AND NUMBER VALIDITY.
+     full name can have blank-space.
+     textarea can have blankspace between words but not as a whole
+     even fullname cannot have blank space in the start and end of words.
+     password and confirmpassword should be same
+ -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+            *{
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+            body{
+              height: 100vh;
+            }
+            .hello{
+              display: grid;
+              grid-template-columns: 50%;
+              justify-content : center;
+              grid-gap: 40px;
+            }
+    </style>
+  </head>
+  <body>
+         <div class="container">
+              <!-- 8_2_2022_formvalidation_using_js.html -->
+              <div class="hello">
+                      <label>
+                              <span>Username</span>
+                              <input type="text" name="username">
+                      </label>
+                      <label>
+                             <span>Contact Number</span>
+                             <input type="tel" name="contact_number">
+                      </label>
+                      <label>
+                             <span>Password</span>
+                             <input type="password" name="password" value="">
+                      </label>
+                      <label>
+                             <span>Confirm Password</span>
+                             <input type="password" name="cpassword" value="">
+                      </label>
+                      <input type="submit" name="submit" onclick="verification()">
+              </div>
+         </div>
+         <script type="text/javascript">
+                  function verification(){
+                       // console.log("hi");
+                       var a = document.querySelectorAll('input');
+                       // console.log(username[0].value);
+                       var username = a[0].value;
+                       var cnumber = a[1].value;
+                       var password = a[2].value;
+                       var cpassword = a[3].value;
+                       // console.log(a[1].name);
+                       // console.log(username);
+                       // console.log(cnumber);
+                       // console.log(password);
+                       // console.log(cpassword);
+                       var array_username = username.split("");
+                       var array_cnumber = cnumber.split("");
+                       var array_password = password.split("");
+                       var array_cpassword = cpassword.split("");
+                       // console.log(array_cnumber);
+                       // console.log(this);
+                       for(var i=0; i<=3; i++){
+                            if(a[i].value == ""){
+                                console.log(a[i].name,": should not be kept blank");
+                            }
+                            else{
+                                // there is certain value in the field even though it is blank.
+                                if(((a[i].value).split(" ")) .length > 1){
+                                     console.log(a[i].name,": should not contain a blank space");
+                                }
+                                else{
+                                    if(i == 1){
+                                         if(a[1].value.length!=10){
+                                           console.log("invalid contact number");
+                                         }
+                                    }
+                                }
+                            }
+                       }
+
+                  }
+         </script>
+  </body>
+</html>

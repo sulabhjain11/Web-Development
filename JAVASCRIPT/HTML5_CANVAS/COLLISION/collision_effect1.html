@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          canvas{
+                            border-style:solid;
+                            border-color:black;
+                          }
+             </style>
+</head>
+<body>
+             <canvas></canvas>
+             <script>
+                           var canvas = document.querySelector('canvas');
+                           canvas.height = window.innerHeight;
+                           canvas.width = window.innerWidth;
+                           var c = canvas.getContext('2d');
+
+                           var array = [new Circle(50,50,20,4,0,"red"),new Circle(400,50,20,-1,0,"blue"),new Circle(800,50,20,-1,0,"blue")];
+
+
+                           // Constructor function for calling any number of balls
+                           // called with the help of new word
+                           function Circle(x,y,radius,dx,dy,color){
+                             this.x = x;
+                             this.y = y;
+                             this.radius = radius;
+                             this.dx = dx;
+                             this.dy = dy;
+                             this.color = color;
+                             this.drawCircle = function(){
+                                c.beginPath();
+                                c.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
+                                c.strokeStyle = this.color;
+                                c.stroke();
+                                c.closePath();
+                             }
+                             this.moveCircle = function(){
+                                 if (this.x<0 || this.x>window.innerWidth) {
+                                     this.dx = -this.dx;
+                                 }
+                                 if (this.y<0 || this.y>window.innerHeight) {
+                                     this.dy = -this.dy;
+                                 }
+                                 this.x+=this.dx;
+                                 this.y+=this.dy;
+                             }
+                           }
+
+
+                            var r;
+                            var z=0;
+                           function Animate(){
+                               requestAnimationFrame(Animate);
+                               c.clearRect(0,0,window.innerWidth,window.innerHeight);
+
+                              // Math.sqrt(Math.pow(array[0].x - array[1].x,2) + Math.pow(array[0].y - array[1].y,2));
+                              for (var i = 1; i < array.length; i++) {
+                                    for (var j = 0; j < array.length; j++) {
+                                         if (i===j) {continue;}
+                                         else if (Math.sqrt(Math.pow(array[i].x - array[j].x,2) + Math.pow(array[i].y - array[j].y,2))>=array[i].radius + array[j].radius){
+                                                     array[i].drawCircle();
+                                                     array[j].drawCircle();
+                                                     array[i].moveCircle();
+                                                     array[j].moveCircle();
+                                                     continue;
+                                               }
+                                               else{
+                                                 r = array[i].dx;
+                                                 array[i].dx = array[j].dx;
+                                                 array[j].dx = r;
+                                                 // console.log(z);
+                                                 // z++;
+                                                 array[i].drawCircle();
+                                                 array[i].moveCircle();
+                                                 array[j].drawCircle();
+                                                 array[j].moveCircle();
+                                                 continue;
+                                               }
+                                         }
+                                    }
+
+
+                              // if (Math.sqrt(Math.pow(array[0].x - array[1].x,2) + Math.pow(array[0].y - array[1].y,2))>=array[0].radius + array[1].radius) {
+                              //   array[0].drawCircle();
+                              //   array[1].drawCircle();
+                              //   array[0].moveCircle();
+                              //   array[1].moveCircle();
+                              //
+                              // }
+                              // else{
+                              //   r = array[1].dx;
+                              //   array[1].dx = array[0].dx;
+                              //   array[0].dx = r;
+                              //   console.log(z);
+                              //   z++;
+                              //   array[0].drawCircle();
+                              //   array[1].drawCircle();
+                              //   array[0].moveCircle();
+                              //   array[1].moveCircle();
+                              // }
+
+                           }
+                           Animate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                           // function onCollision(array){
+                           //      for (var i = 0; i < array.length; i++) {
+                           //           for (var j = 0; j < array.length; i++) {
+                           //               if (i==j) {
+                           //                  continue;
+                           //               }
+                           //               else{
+                           //                 if(distanceMeasurement(array[i].x,array[i].y,array[j].x,array[j].y)<array[i].radius+array[j].radius);{
+                           //                   console.log("collision");
+                           //                 }
+                           //
+                           //               }
+                           //          }
+                           //      }
+                           // }
+                           //
+                           // function distanceMeasurement(x1,y1,x2,y2){
+                           //     var distance = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y2,2));
+                           //     return distance;
+                           // }
+
+
+             </script>
+</body>
+</html>

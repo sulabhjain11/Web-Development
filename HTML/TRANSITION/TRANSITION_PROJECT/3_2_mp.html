@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+            *{
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+            .container{
+              height: 50vh;
+              width: 50vw;
+              background-color: #ddd;
+            }
+            .box{
+              background-color: black;
+              height: 30%;
+              width: 20%;
+              transition: transform 2s;
+            }
+    </style>
+  </head>
+  <body>
+        <div class="container">
+              <button class="button" type="button" name="button1">Click me1</button>
+              <button class="button" type="button" name="button2">Click me2</button>
+              <div class="box" id="box">
+
+              </div>
+        </div>
+        <script type="text/javascript">
+                 let a = document.getElementsByClassName('button');
+                 for (var i = 0; i <=1; i++) {
+                     a[i].addEventListener("click",function(){
+                       let b = document.getElementById('box');
+                       if(this.name === "button1"){
+                          b.style.transform = "translate(50px,0)";
+                       }
+                      else if(this.name === "button2"){
+                        b.style.transform = "translate(0px,0)"; // VVI: THE ITEM WILL MOVE wrt initial position
+                      }
+                     });
+                 }
+        </script>
+  </body>
+</html>

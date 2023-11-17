@@ -1,0 +1,125 @@
+<!-- This is Project-1 -->
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          #container1{
+                            border-color:black;
+                            border-style:solid;
+                            background-color:yellow;
+                          }
+                          h1{
+                            text-align:center;
+                          }
+                          #container2{
+                            display:flex;
+                            justify-content:center;
+                          }
+                          button{
+                            height:50px;
+                            width:150px;
+                            margin:10px;
+                            background-color:yellow;
+                            border-color:white;
+                            border-style:solid;
+                            border-radius:5px;
+                            color:white;
+                            font-size:20px;
+                          }
+                          button:hover{
+                            color:yellow;
+                            background-color:#878765;
+                          }
+                          p{
+                            text-align:center;
+                          }
+             </style>
+</head>
+<body>
+              <div id="container1">
+                         <h1>STOP WATCH</h1>
+                         <h1>VANILLA JAVASCRIPT STOPWATCH</h1>
+                         <p>
+                                 <span id="hour1">00</span>
+                                 <span id="hour2">hr</span>
+                                 <span id="minute1">00</span>
+                                 <span id="minute2">min</span>
+                                 <span id="second1">00</span>
+                                 <span id="second2">sec</span>
+                                 <span id="count">00</span> <!--100th part of a second-->
+                         </p>
+                                   <div id="container2">
+                                              <button id="btnStart" onclick="StartTimer()">Start</button>
+                                              <button id="btnPause" onclick="PauseTimer()">Pause</button>
+                                              <button id="btnReset" onclick="ResetTimer()">Reset</button>
+                                   </div>
+              </div>
+
+              <script>
+                            var timer=false; //false=timer is not running, true=timer is running
+                            var hr=0;
+                            var min=0;
+                            var sec=0;
+                            var count=0; //100th of a sec //millisec=1000th of a sec
+
+                            function StartTimer(){
+                                    timer=true; // as soon as start is clicked,timer is set to true
+                                    stopwatch();
+                            }
+                            function PauseTimer(){
+                                    timer=false; // as soon as pause is clicked,timer is set to false
+                            }
+                            function ResetTimer(){
+                                    timer=false; // as soon as reset is clicked,timer is set to false
+                                    hr=0;
+                                    min=0;
+                                    sec=0;
+                                    count=0;
+                                    document.getElementById('hour1').innerHTML="00";
+                                    document.getElementById('minute1').innerHTML="00";
+                                    document.getElementById('second1').innerHTML="00";
+                                    document.getElementById('count').innerHTML="00";
+                            }
+                            function stopwatch(){
+                                    if(timer == true){
+                                               document.getElementById('btnStart').disabled=true;
+                                              // after waiting for 10 milliseconds,increase the count by 1.
+                                              count=count+1;
+                                              if(count == 100){
+                                                      sec=sec+1;
+                                                      count=0;
+                                                 }
+                                              if (sec==60){
+                                                      min=min+1;
+                                                      sec=0;
+                                              }
+                                              if (min==60) {
+                                                     hr=hr+1;
+                                                     min=0;
+                                              }
+                                             var hrstring=hr;
+                                             var minstring=min;
+                                             var secstring=sec;
+                                             var countstring=count;
+                                             if(hr<10){
+                                               hrstring="0"+hrstring;
+                                             }
+                                             if(min<10){
+                                               minstring="0"+minstring;
+                                             }
+                                             if(sec<10){
+                                               secstring="0"+secstring;
+                                             }
+                                             if(count<10){
+                                               countstring="0"+countstring;
+                                             }
+                                             document.getElementById('hour1').innerHTML=hrstring;
+                                             document.getElementById('minute1').innerHTML=minstring;
+                                             document.getElementById('second1').innerHTML=secstring;
+                                             document.getElementById('count').innerHTML=countstring;
+                                             setTimeout(stopwatch,10);//will wait for 10 milliseconds,and call the function as told
+                                          }
+                               }
+              </script>
+</body>
+</html>

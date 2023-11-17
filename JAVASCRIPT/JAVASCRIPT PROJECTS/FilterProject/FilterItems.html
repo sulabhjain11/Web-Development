@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          li{
+                            list-style:none;
+                            display:inline-block;
+                            border-style:solid;
+                            border-color:black;
+                            border-width:1px;
+                            padding:14px;
+                            margin:14px;
+                            border-radius:5px;
+                          }
+                          img{
+                            height:260px;
+                            width:240px;
+                          }
+                          img:hover{
+                            transition: all 0.8s ease-in-out;
+                            transform:scale(1.5);
+                          }
+                          .active{
+                            background-color:gray;
+                          }
+                          a{
+                            color:black;
+                            text-decoration:none;
+                          }
+                          p{
+                            text-align:center;
+                            color:purple;
+                            font-weight:bold;
+                            font-style:italic;
+                          }
+             </style>
+</head>
+<body>
+              <div class="itemtype">
+                         <ul class="indicator">
+                                 <li data-itemtype="all" class="btn active"><a href="#">ALL</a></li>
+                                 <li data-itemtype="cakes" class="btn"><a href="#">CAKES</a></li>
+                                 <li data-itemtype="cupcakes" class="btn"><a href="#">CUPCAKES</a></li>
+                                 <li data-itemtype="sweets" class="btn"><a href="#">SWEETS</a></li>
+                                 <li data-itemtype="doughnuts" class="btn"><a href="#">DOUGHNUTS</a></li>
+                         </ul>
+              </div>
+              <div class="itemcontent">
+                         <ul class="items">
+                                  <li class="item cakes">
+                                          <img src="cake-1.jpeg">
+                                          <p>cake</p>
+                                  </li>
+                                  <li class="item cakes">
+                                          <img src="cake-2.jpeg">
+                                          <p>cake</p>
+                                  </li>
+                                  <li class="item cakes">
+                                          <img src="cake-3.jpeg">
+                                          <p>cake</p>
+                                  </li>
+                                  <li class="item cupcakes">
+                                          <img src="cupcake-1.jpeg">
+                                          <p>cupcake</p>
+                                  </li>
+                                  <li class="item cupcakes">
+                                          <img src="cupcake-2.jpeg">
+                                          <p>cupcake</p>
+                                  </li>
+                                  <li class="item cupcakes">
+                                          <img src="cupcake-3.jpeg">
+                                          <p>cupcake</p>
+                                  </li>
+                                  <li class="item doughnuts">
+                                          <img src="doughnut-1.jpeg">
+                                          <p>doughnut</p>
+                                  </li>
+                                  <li class="item doughnuts">
+                                          <img src="doughnut-2.jpeg">
+                                          <p>doughnut</p>
+                                  </li>
+                                  <li class="item doughnuts">
+                                          <img src="doughnut-3.jpeg">
+                                          <p>doughnut</p>
+                                  </li>
+                                  <li class="item sweets">
+                                          <img src="sweets-1.jpeg">
+                                          <p>sweet</p>
+                                  </li>
+                                  <li class="item sweets">
+                                          <img src="sweets-2.jpeg">
+                                          <p>sweet</p>
+                                  </li>
+                                  <li class="item sweets">
+                                          <img src="sweets-3.jpeg">
+                                          <p>sweet</p>
+                                  </li>
+                         </ul>
+              </div>
+
+              <script type="text/javascript">
+                             var btn = document.querySelectorAll(".btn");
+                             var item = document.querySelectorAll(".item");
+                             // console.log(btn);
+                             // console.log(item);
+                             for (var i = 0; i < btn.length; i++) {
+                               btn[i].addEventListener('click', (e) =>{
+                                 e.preventDefault(); // VVI
+
+                                 var itemtype=e.target.dataset.itemtype; // targeting the dataset==u can target id,class,innerattriibute. etc.
+                                 // console.log(itemtype);
+                                 for (var j = 0; j < item.length; j++) {
+                                       if (itemtype=="all") {
+                                            item[j].style.display="inline-block";
+                                       }
+                                       else {
+                                            if (item[j].classList.contains(itemtype)) {  // contains: whether class is present.
+                                                item[j].style.display = "inline-block";
+                                            }
+                                            else{
+                                                 item[j].style.display = "none";
+                                            }
+                                       }
+                                 }
+                               });
+                             }
+              </script>
+</body>
+</html>

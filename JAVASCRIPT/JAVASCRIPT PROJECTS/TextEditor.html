@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+       <style>
+              .container1{
+
+              }
+              button{
+                height:25px;
+                width:60px;
+                margin:10px;
+                box-sizing:content-box;
+              }
+              img{
+                height:16px;
+                width:19px;
+                padding:0px;
+                margin:-3px;
+              }
+              #six{
+                height:25px;
+                width:74px;
+              }
+              #seven{
+                height:25px;
+                width:74px;
+              }
+              .textarea{
+                display:block;
+                margin-left:50px;
+                margin-top:20px;
+              }
+       </style>
+</head>
+<body>
+      <div class="container1">
+            <button type="button" class="button" id="one" onclick="bold()">Bold</button>
+            <button type="button" class="button" id="two" onclick="italics()">Italics</button>
+            <button type="button" class="button" id="three" onclick="leftAlign()"><img src="https://image.flaticon.com/icons/png/512/154/154588.png"></button>
+            <button type="button" class="button" id="four" onclick="middleAlign()"><img src="https://image.flaticon.com/icons/png/512/154/154820.png"></button>
+            <button type="button" class="button" id="five" onclick="rightAlign()"><img src="https://cdn0.iconfinder.com/data/icons/smoothies-vector-icons-volume-2/48/146-512.png"></button>
+            <button type="button" class="button" id="six" onclick="upperCase()">Upper Case</button>
+            <button type="button" class="button" id="seven" onclick="lowerCase()">Lower Case</button>
+            <button type="button" class="button" id="eight" onclick="capitalize()">Capitalize</button>
+            <button type="button" class="button" id="nine" onclick="clearText()">Clear Text</button>
+      </div>
+      <textarea class="textarea" id="textarea" name="name" rows="15" cols="100" placeholder="Your text here "></textarea>
+      <script type="text/javascript">
+            let j = document.getElementById('textarea');
+            let a = document.getElementById('one');
+            let b = document.getElementById('two');
+            let c = document.getElementById('three');
+            let d = document.getElementById('four');
+            let e = document.getElementById('five');
+            let f = document.getElementById('six');
+            let g = document.getElementById('seven');
+            let h = document.getElementById('eight');
+            let i = document.getElementById('nine');
+            function bold(){
+              j.style.fontWeight="bold";
+            }
+            function italics(){
+              j.style.fontStyle="italic";
+            }
+            function leftAlign(){
+              j.style.textAlign="left";
+            }
+            function middleAlign(){
+              j.style.textAlign="center";
+            }
+            function rightAlign(){
+              j.style.textAlign="right";
+            }
+            function upperCase(){
+              j.style.textTransform="uppercase";
+            }
+            function lowerCase(){
+              j.style.textTransform="lowercase";
+            }
+            function capitalize(){
+              j.style.textTransform="capitalize";
+            }
+            function clearText(){
+              j.style.fontWeight="normal";
+              j.style.fontStyle="normal";
+              j.style.textAlign="left";
+              f.style.textTransform="normal";
+              j.value="";
+            }
+      </script>
+</body>
+</html>

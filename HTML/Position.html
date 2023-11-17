@@ -1,0 +1,57 @@
+<!-- position: static(default),absolute,relative,fixed,sticky -->
+<!-- relative:will move from the position where it was supposed to be....top,bottom,right,left -->
+<!-- absolute:will move with respect to its first parent-->
+<!-- fixed and sticky are almost same -->
+<!-- fixed:will be fixed until the end of the webpage -->
+<!-- sticky:will be fixed until the end of the container -->
+<!DOCTYPE html>
+<html>
+<head>
+            <style>
+                        .container{
+                          border-style:solid;
+                          border-color:black;
+                          background-color:khaki;
+                          height:1000px;
+                          width:800px;
+                        }
+                        .box{
+                          display:inline-block;
+                          border-color:red;
+                          border-style:solid;
+                          height:100px;
+                          width:100px;
+                        }
+                        #box3{
+                          /*
+                          position:relative;
+                          top:50px;
+                          right:30px;
+                          */
+                          /*
+                          position:absolute;
+                          top:40px;
+                          left:40px;
+                          */
+                          /*
+                          position:sticky;
+                          top:40px;
+                          left:40px;
+                          */
+                          /*
+                          position:fixed;
+                          top:40px;
+                          left:40px;
+                          */
+                        }
+            </style>
+</head>
+<body>
+             <div class="container">
+                        <div class="box" id="box1">1</div>
+                        <div class="box" id="box2">2</div>
+                        <div class="box" id="box3">3</div>
+                        <div class="box" id="box4">4</div>
+             </div>
+</body>
+</html>

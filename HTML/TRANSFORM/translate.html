@@ -1,0 +1,33 @@
+<!-- whenever translate property is applied to an element, it will come out of the flow. However, other elements will not take its place. -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+            div{
+              height: 80px;
+              width: 80px;
+              display: inline-block;
+              margin: 10px;
+            }
+            .container1{
+              background-color: red;
+            }
+            .container2{
+              background-color: blue;
+              transform: translate(40px,0);
+              /*If you use % here, it will be wrt the size of the element and not the empty space in its parent.
+                                              The values can be positive or negative.*/
+            }
+            .container3{
+              background-color: orange;
+            }
+    </style>
+  </head>
+  <body>
+         <div class="container1">BOX1</div>
+         <div class="container2">BOX2</div>
+         <div class="container3">BOX3</div>
+  </body>
+</html>

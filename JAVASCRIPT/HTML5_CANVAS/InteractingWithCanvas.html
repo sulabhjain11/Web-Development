@@ -1,0 +1,101 @@
+<!-- program 6 -->
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          canvas{
+                            border-color:black;
+                            border-style:solid;
+                          }
+             </style>
+</head>
+<body>
+             <canvas></canvas>
+             <script>
+                           var canvas = document.querySelector('canvas');
+                           var c = canvas.getContext('2d');
+                           canvas.width = window.innerWidth;
+                           canvas.height = window.innerHeight;
+                           var mouse = {
+                              x:undefined,
+                              y:undefined
+                           };
+
+                           // event listener is added to entire html page.
+                           window.addEventListener('mousemove',function(event){
+                                console.log(event);
+                                mouse.x = event.x;
+                                mouse.y = event.y;
+                                console.log(mouse);
+                           });
+
+
+
+
+                           //var circle = new Circle(20,20,10,2,2);
+                           //circle.drawCircle();
+
+                           var circles = [];
+                           var colors = ["red","blue","pink","yellow","white","orange"];
+                           var x,y,radius,dx,dy,color;
+                           var highest = 8;
+                           var lowest = 1;
+                           for (var i = 0; i < 800; i++) {
+                             radius= Math.random()*(highest-lowest)+lowest;
+                             x = Math.random()*window.innerWidth;
+                             y = Math.random()*window.innerHeight;
+                             dx = 1;
+                             dy = 1;
+                             color = colors[Math.floor(Math.random()*(6))]; // [0,5]
+                             circles.push(new Circle(x,y,radius,dx,dy,color));
+                           }
+
+
+                           function Circle(x,y,radius,dx,dy,color){
+                             this.x = x;
+                             this.y = y;
+                             this.radius = radius;
+                             var radius1 = radius;
+                             this.dx = dx;
+                             this.dy = dy;
+                             this.color=color;
+                             this.drawCircle = function(){
+                                c.beginPath();
+                                c.arc(x,y,radius,0,Math.PI*2,false);
+                                // c.strokeStyle = color;
+                                // c.stroke();
+                                c.fillStyle = color;
+                                c.fill ();
+                             };
+                             this.movement = function(){
+                                if(x>window.innerWidth || x<0){
+                                  dx = -dx;
+                                }
+                                if (y>window.innerHeight || y<0) {
+                                  dy = -dy;
+                                }
+                                x = x + dx;
+                                y = y + dy;
+
+                                //interactivity
+                                if (Math.sqrt(Math.pow((mouse.x - x),2)+Math.pow((mouse.y - y),2)) <=40) {
+                                  radius = 30;
+                                }
+                                 else{
+                                   radius=radius1;
+                                 }
+
+                             };
+                           }
+                           function animate(){
+                             requestAnimationFrame(animate);
+                             c.clearRect(0,0,innerWidth,innerHeight);
+                             for (var i = 0; i < circles.length; i++) {
+                               circles[i].drawCircle();
+                               circles[i].movement();
+                             }
+                           }
+                           animate();
+             </script>
+</body>
+</html>

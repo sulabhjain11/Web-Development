@@ -1,0 +1,45 @@
+<!-- Visibility......This will remove the element but not the space -->
+<!-- display:none......This will remove the element and also the space -->
+<!-- z-index....this will put one element over the other....u can decide which element be over the other -->
+<!-- z-index....this works only with positioned element -->
+<!DOCTYPE html>
+<html>
+<head>
+             <style>
+                          .box{
+                            border-style:solid;
+                            border-color:black;
+                            height:100px;
+                            width:100px;
+                          }
+                          <!--  -->
+                          #box1{
+                            background-color:red;
+                            position:relative;
+                            top:40px; /*this box will move down from its original position*/
+                            z-index:5;
+                          }
+                          #box2{
+                           position:relative;
+                           /*z-index will only work inside that box which is positioned....else it has no value*/
+                            background-color:yellow;
+                            z-index:10;/*bigger the z-index,it will be shown on top*/
+                            /* visibility:hidden; */
+                            /* display:none; */
+                          }
+                          #box3{
+                            background-color:blue;
+                          }
+                          #box4{
+                            background-color:orange;
+                          }
+
+            </style>
+</head>
+<body>
+             <div class="box" id="box1"></div>
+             <div class="box" id="box2"></div>
+             <div class="box" id="box3"></div>
+             <div class="box" id="box4"></div>
+</body>
+</html>
